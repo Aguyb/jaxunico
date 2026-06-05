@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import { Play, Mic, ArrowRight, CheckCircle, Clock, Users } from 'lucide-react'
 

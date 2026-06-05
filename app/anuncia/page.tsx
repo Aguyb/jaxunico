@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, BarChart3, Mail, Package } from 'lucide-react'
 

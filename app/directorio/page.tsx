@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import { Search, MapPin, ArrowRight, CheckCircle, Star } from 'lucide-react'
 

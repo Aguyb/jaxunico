@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import { Calendar, MapPin, Users, ArrowRight, Mic, Star } from 'lucide-react'
 

@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-bebas: 'Bebas Neue', Impact, sans-serif;
+  --font-dm-sans: 'DM Sans', system-ui, sans-serif;
+  --font-space-mono: 'Space Mono', monospace;
+  --red-primary: #C6002B;
+  --red-dark: #9B0020;
+  --gold: #C9A84C;
+  --charcoal: #3A3A3A;
+  --dark: #1A1A1A;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-dm-sans);
+  background: #ffffff;
+  color: #1A1A1A;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#C6002B] text-white font-body font-semibold px-6 py-3 rounded-lg 
+           hover:bg-[#9B0020] transition-all duration-200 inline-flex items-center gap-2
+           active:scale-95;
+  }
+  .btn-outline {
+    @apply border-2 border-[#C6002B] text-[#C6002B] font-body font-semibold px-6 py-3 rounded-lg
+           hover:bg-[#C6002B] hover:text-white transition-all duration-200 inline-flex items-center gap-2
+           active:scale-95;
+  }
+  .btn-dark {
+    @apply bg-[#1A1A1A] text-white font-body font-semibold px-6 py-3 rounded-lg
+           hover:bg-[#2D2D2D] transition-all duration-200 inline-flex items-center gap-2
+           active:scale-95;
+  }
+  .section-heading {
+    @apply font-heading text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] leading-none tracking-wide uppercase;
+  }
+  .section-subheading {
+    @apply font-body text-lg text-gray-500 mt-4 max-w-2xl;
+  }
+  .card {
+    @apply bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1.5 bg-red-50 text-[#C6002B] text-xs font-mono font-bold 
+           px-3 py-1 rounded-full uppercase tracking-widest;
+  }
+  .badge-gold {
+    @apply inline-flex items-center gap-1.5 bg-amber-50 text-[#C9A84C] text-xs font-mono font-bold 
+           px-3 py-1 rounded-full uppercase tracking-widest;
+  }
+  .ticker-wrapper {
+    @apply overflow-hidden bg-[#1A1A1A] py-3 relative;
+  }
+  .ticker-content {
+    @apply flex whitespace-nowrap animate-ticker;
+  }
+  .ticker-item {
+    @apply text-sm font-mono font-bold uppercase tracking-widest px-8 flex items-center gap-4;
+  }
+}
+
+/* Noise texture overlay */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #C6002B; border-radius: 3px; }

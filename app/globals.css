@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,87 +6,84 @@
 
 :root {
   --font-bebas: 'Bebas Neue', Impact, sans-serif;
-  --font-dm-sans: 'DM Sans', system-ui, sans-serif;
-  --font-space-mono: 'Space Mono', monospace;
-  --red-primary: #C6002B;
+  --font-dm: 'DM Sans', system-ui, sans-serif;
+  --red: #C6002B;
   --red-dark: #9B0020;
   --gold: #C9A84C;
-  --charcoal: #3A3A3A;
   --dark: #1A1A1A;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+* { box-sizing: border-box; padding: 0; margin: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-dm); background: #fff; color: #1A1A1A; -webkit-font-smoothing: antialiased; font-size: 18px; line-height: 1.7; }
+
+/* ── Wiggle & float animations ── */
+@keyframes wiggle {
+  0%,100% { transform: rotate(-1.5deg) translateY(0px); }
+  25% { transform: rotate(1.5deg) translateY(-4px); }
+  75% { transform: rotate(-0.5deg) translateY(2px); }
+}
+@keyframes floatY {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes jaxTicker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes pulse-ring {
+  0%   { transform: scale(1);    opacity: .6; }
+  100% { transform: scale(1.55); opacity: 0;  }
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-dm-sans);
-  background: #ffffff;
-  color: #1A1A1A;
-  -webkit-font-smoothing: antialiased;
-}
+.wiggle       { animation: wiggle  4s ease-in-out infinite; }
+.float-y      { animation: floatY  5s ease-in-out infinite; }
+.fade-up      { animation: fadeUp  .7s ease forwards; }
+.scale-in     { animation: scaleIn .5s ease forwards; }
 
 @layer components {
   .btn-primary {
-    @apply bg-[#C6002B] text-white font-body font-semibold px-6 py-3 rounded-lg 
+    @apply bg-[#C6002B] text-white font-semibold px-7 py-4 rounded-2xl
            hover:bg-[#9B0020] transition-all duration-200 inline-flex items-center gap-2
-           active:scale-95;
+           text-lg active:scale-95 shadow-lg shadow-red-900/20;
   }
   .btn-outline {
-    @apply border-2 border-[#C6002B] text-[#C6002B] font-body font-semibold px-6 py-3 rounded-lg
+    @apply border-2 border-[#C6002B] text-[#C6002B] font-semibold px-7 py-4 rounded-2xl
            hover:bg-[#C6002B] hover:text-white transition-all duration-200 inline-flex items-center gap-2
-           active:scale-95;
+           text-lg active:scale-95;
   }
-  .btn-dark {
-    @apply bg-[#1A1A1A] text-white font-body font-semibold px-6 py-3 rounded-lg
-           hover:bg-[#2D2D2D] transition-all duration-200 inline-flex items-center gap-2
-           active:scale-95;
+  .btn-white {
+    @apply bg-white text-[#C6002B] font-semibold px-7 py-4 rounded-2xl
+           hover:bg-gray-100 transition-all duration-200 inline-flex items-center gap-2
+           text-lg active:scale-95;
   }
   .section-heading {
-    @apply font-heading text-4xl md:text-5xl lg:text-6xl text-[#1A1A1A] leading-none tracking-wide uppercase;
-  }
-  .section-subheading {
-    @apply font-body text-lg text-gray-500 mt-4 max-w-2xl;
+    @apply font-['Bebas_Neue'] text-5xl md:text-6xl lg:text-7xl text-[#1A1A1A] leading-none tracking-wide uppercase;
   }
   .card {
-    @apply bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-200;
+    @apply bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300;
   }
   .badge {
-    @apply inline-flex items-center gap-1.5 bg-red-50 text-[#C6002B] text-xs font-mono font-bold 
-           px-3 py-1 rounded-full uppercase tracking-widest;
+    @apply inline-flex items-center gap-1.5 bg-red-50 text-[#C6002B] text-sm font-bold
+           px-4 py-1.5 rounded-full uppercase tracking-widest;
   }
   .badge-gold {
-    @apply inline-flex items-center gap-1.5 bg-amber-50 text-[#C9A84C] text-xs font-mono font-bold 
-           px-3 py-1 rounded-full uppercase tracking-widest;
+    @apply inline-flex items-center gap-1.5 bg-amber-50 text-[#C9A84C] text-sm font-bold
+           px-4 py-1.5 rounded-full uppercase tracking-widest;
   }
-  .ticker-wrapper {
-    @apply overflow-hidden bg-[#1A1A1A] py-3 relative;
-  }
-  .ticker-content {
-    @apply flex whitespace-nowrap animate-ticker;
-  }
-  .ticker-item {
-    @apply text-sm font-mono font-bold uppercase tracking-widest px-8 flex items-center gap-4;
+  .img-cover {
+    @apply w-full h-full object-cover;
   }
 }
 
-/* Noise texture overlay */
-.noise::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  opacity: 0.4;
-}
-
-/* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #f1f1f1; }
 ::-webkit-scrollbar-thumb { background: #C6002B; border-radius: 3px; }

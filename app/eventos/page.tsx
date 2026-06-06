@@ -1,87 +1,186 @@
 'use client'
 import Link from 'next/link'
-import { Calendar, MapPin, Users, ArrowRight, Mic, Star } from 'lucide-react'
+import { Calendar, MapPin, Users, ArrowRight, Mic, Star, CheckCircle, Building2 } from 'lucide-react'
 
-const eventTypes = [
-  { icon: Users, title: 'Networking Trimestral', desc: '50–100 personas. Mixer + episodio en vivo.', freq: 'Cada 3 meses', price: '$20–$40' },
-  { icon: Star, title: 'Latin Business Summit', desc: 'Summit de medio día, 4–6 speakers, expo.', freq: 'Anual', price: '$75–$150' },
-  { icon: Mic, title: 'Talleres de Coaching', desc: 'Experto invitado, 3–4 horas de formación.', freq: 'Mensual', price: '$47–$197' },
-  { icon: Users, title: 'La Mesa — Paneles', desc: '3–5 invitados pasados en escena, Q&A.', freq: 'Bimensual', price: '$25–$50' },
-  { icon: Star, title: 'Cenas VIP', desc: '10–20 líderes, mastermind íntimo.', freq: 'Trimestral', price: 'Invitación' },
+const communityEvents = [
+  { img: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80', title: 'Festival Latino de Jacksonville', desc: 'Celebración de la cultura latina — música, comida, arte y familia.', date: 'Por confirmar', type: 'Festival' },
+  { img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&q=80', title: 'Feria de Negocios Latinos', desc: 'Expositores locales, demos de productos y networking intenso.', date: 'Por confirmar', type: 'Feria' },
+  { img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80', title: 'Noche de Gala Latina', desc: 'Reconocimiento a líderes y emprendedores latinos de Jacksonville.', date: 'Por confirmar', type: 'Gala' },
 ]
 
 export default function EventosPage() {
   return (
     <>
-      <section className="bg-white py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="badge mb-6">Eventos</div>
-              <h1 className="section-heading mb-6">
-                Experiencias que<br /><span className="text-[#C6002B]">Conectan</span><br />a la Comunidad<br />Latina.
-              </h1>
-              <p className="text-gray-500 leading-relaxed mb-8">Eventos de networking, summits, talleres y paneles diseñados para la comunidad latina de Jacksonville.</p>
-              <div className="flex gap-4 flex-wrap">
-                <Link href="#proximo" className="btn-primary text-base px-8 py-4">Ver Próximo Evento <ArrowRight size={18} /></Link>
-                <Link href="#tipos" className="btn-outline text-base px-8 py-4">Tipos de Eventos</Link>
-              </div>
+      {/* Hero */}
+      <section className="relative bg-[#1A1A1A] py-24 lg:py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&q=80"
+            alt="Events" className="w-full h-full object-cover opacity-25" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A] via-[#1A1A1A]/85 to-transparent" />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mb-6">Eventos</div>
+            <h1 className="font-['Bebas_Neue'] text-7xl lg:text-8xl text-white leading-none mb-8 uppercase">
+              Experiencias<br />que <span className="text-[#C6002B]">Conectan</span><br />Nuestra<br />Comunidad.
+            </h1>
+            <p className="text-xl text-gray-300 mb-10 leading-relaxed">Networking, summits, festivales y más — el calendario de la comunidad latina de Jacksonville.</p>
+            <div className="flex gap-4 flex-wrap">
+              <Link href="#anual" className="btn-primary text-xl px-10 py-5">Nuestro Evento Anual <ArrowRight size={22}/></Link>
+              <Link href="#comunidad" className="border-2 border-white/30 text-white hover:border-white font-semibold px-10 py-5 rounded-2xl transition-all text-xl inline-flex items-center gap-2">Ver Comunidad</Link>
             </div>
-            {/* Next event card */}
-            <div id="proximo" className="card p-8 border-[#C6002B] border-2">
-              <div className="badge mb-4">Próximo Evento</div>
-              <h2 className="font-heading text-3xl tracking-wide text-[#1A1A1A] mb-6">Jax Unico Networking Night</h2>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center gap-3 text-sm text-gray-500"><Calendar size={16} className="text-[#C6002B]" /> Próximamente — 2025</div>
-                <div className="flex items-center gap-3 text-sm text-gray-500"><MapPin size={16} className="text-[#C6002B]" /> Jacksonville, Florida</div>
-                <div className="flex items-center gap-3 text-sm text-gray-500"><Users size={16} className="text-[#C6002B]" /> 50–100 personas · Networking + Episodio en vivo</div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ANNUAL EVENT ── */}
+      <section id="anual" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <div className="badge-gold mb-6">Evento Anual</div>
+              <h2 className="section-heading mb-6">
+                Latin Business<br /><span className="text-[#C6002B]">Summit</span><br />Jacksonville
+              </h2>
+              <p className="text-xl text-gray-500 leading-relaxed mb-8">
+                El evento más importante del año para la comunidad empresarial latina de Jacksonville. Speakers nacionales, expo de negocios, networking intenso y reconocimientos a líderes locales.
+              </p>
+              <div className="space-y-4 mb-8">
+                {[
+                  { icon: <Calendar size={20}/>, text: 'Fecha por confirmar — 2025' },
+                  { icon: <MapPin size={20}/>, text: 'Jacksonville, Florida' },
+                  { icon: <Users size={20}/>, text: '200–400 asistentes esperados' },
+                  { icon: <Mic size={20}/>, text: '4–6 speakers de alto nivel' },
+                  { icon: <Star size={20}/>, text: 'Expo de negocios latinos + networking' },
+                ].map(item => (
+                  <div key={item.text} className="flex items-center gap-4 text-lg text-gray-600">
+                    <div className="text-[#C6002B]">{item.icon}</div>
+                    {item.text}
+                  </div>
+                ))}
               </div>
-              <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
-                <input type="text" placeholder="Tu nombre" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm font-body focus:outline-none focus:border-[#C6002B]" />
-                <input type="email" placeholder="tu@email.com" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm font-body focus:outline-none focus:border-[#C6002B]" />
-                <button type="submit" className="btn-primary w-full justify-center">
-                  Me Interesa — Notifícame <ArrowRight size={16} />
+              <p className="text-lg text-gray-400 italic">Regístrate ahora para recibir información prioritaria cuando abramos las inscripciones.</p>
+            </div>
+
+            {/* Registration form */}
+            <div className="card p-10 border-2 border-[#C6002B]">
+              <div className="badge mb-4">Únete a Nuestro Evento Anual</div>
+              <h3 className="font-['Bebas_Neue'] text-4xl text-[#1A1A1A] mb-2">Regístrate y Mantente Informado</h3>
+              <p className="text-lg text-gray-500 mb-8">Completa el formulario y serás el primero en saber la fecha, ubicación y cómo participar — como asistente, expositor o speaker.</p>
+              <form className="space-y-5" onSubmit={e => e.preventDefault()}>
+                {[
+                  ['Nombre completo', 'text', 'Tu nombre'],
+                  ['Empresa / Negocio', 'text', 'Nombre de tu empresa'],
+                  ['Email', 'email', 'tu@email.com'],
+                  ['Teléfono', 'tel', '(904) 000-0000'],
+                  ['Ciudad / Zona de Jacksonville', 'text', 'Riverside, Southside, etc.'],
+                ].map(([label, type, ph]) => (
+                  <div key={label}>
+                    <label className="block text-sm font-bold text-gray-500 mb-2 uppercase tracking-widest">{label}</label>
+                    <input type={type} placeholder={ph} className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-medium focus:outline-none focus:border-[#C6002B]" />
+                  </div>
+                ))}
+                <div>
+                  <label className="block text-sm font-bold text-gray-500 mb-2 uppercase tracking-widest">Industria / Expertise</label>
+                  <select className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-medium focus:outline-none focus:border-[#C6002B] text-gray-600">
+                    <option value="">¿En qué área eres experto?</option>
+                    {['Negocios y Emprendimiento', 'Salud y Bienestar', 'Tecnología', 'Finanzas e Inversiones', 'Bienes Raíces', 'Marketing y Medios', 'Arte y Entretenimiento', 'Educación', 'Legal', 'Construcción', 'Restaurantes y Gastronomía', 'Otro'].map(o => <option key={o}>{o}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-gray-500 mb-2 uppercase tracking-widest">¿Cómo quieres participar?</label>
+                  <div className="grid grid-cols-2 gap-3">
+                    {['Asistente', 'Expositor', 'Speaker / Panelista', 'Patrocinador'].map(opt => (
+                      <label key={opt} className="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-2xl cursor-pointer hover:border-[#C6002B] transition-colors">
+                        <input type="checkbox" className="w-5 h-5 accent-[#C6002B]" />
+                        <span className="text-base font-semibold text-gray-700">{opt}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-gray-500 mb-2 uppercase tracking-widest">Mensaje o pregunta (opcional)</label>
+                  <textarea rows={3} className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-medium focus:outline-none focus:border-[#C6002B] resize-none" />
+                </div>
+                <button type="submit" className="btn-primary w-full justify-center text-xl py-5">
+                  Quiero Participar — Notifícame <ArrowRight size={22}/>
                 </button>
+                <p className="text-center text-base text-gray-400">Te contactaremos cuando abramos inscripciones oficiales.</p>
               </form>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Event types */}
-      <section id="tipos" className="py-20 bg-[#F7F7F7]">
+      {/* ── EVENT TYPES ── */}
+      <section className="py-24 bg-[#F7F7F7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="section-heading">Tipos de Eventos</h2>
+          <div className="text-center mb-16">
+            <div className="badge mx-auto mb-6">Formato de Eventos</div>
+            <h2 className="section-heading">Tipos de Eventos<br /><span className="text-[#C6002B]">Jax Unico</span></h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {eventTypes.map((e) => {
-              const Icon = e.icon
-              return (
-                <div key={e.title} className="card p-6 hover:border-[#C6002B]/30">
-                  <div className="w-12 h-12 bg-[#C6002B]/10 rounded-xl flex items-center justify-center mb-4">
-                    <Icon size={22} className="text-[#C6002B]" />
-                  </div>
-                  <h3 className="font-heading text-xl tracking-wide text-[#1A1A1A] mb-2">{e.title}</h3>
-                  <p className="text-sm text-gray-500 mb-4">{e.desc}</p>
-                  <div className="flex items-center justify-between text-xs font-mono">
-                    <span className="text-gray-400">{e.freq}</span>
-                    <span className="text-[#C9A84C] font-bold">{e.price}</span>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { img: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=600&q=80', title: 'Networking Trimestral', desc: '50–100 personas. Mixer + episodio del show en vivo. Conecta con empresarios latinos.', freq: 'Cada 3 meses' },
+              { img: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&q=80', title: 'Talleres de Coaching', desc: 'Expertos invitados ofrecen formación intensiva en negocios, marketing y liderazgo.', freq: 'Mensual' },
+              { img: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80', title: 'La Mesa — Paneles', desc: '3–5 invitados del show en escena. Q&A abierto, moderado y lleno de valor.', freq: 'Bimensual' },
+              { img: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80', title: 'Cenas VIP', desc: 'Mastermind íntimo con 10–20 líderes. Invitación exclusiva para top comunidad.', freq: 'Trimestral' },
+              { img: 'https://images.unsplash.com/photo-1601506521793-dc748fc80b67?w=600&q=80', title: 'Activaciones de Marca', desc: 'Co-producimos eventos para marcas patrocinadoras. Producción completa incluida.', freq: 'A demanda' },
+            ].map(e => (
+              <div key={e.title} className="card overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+                <div className="h-48 overflow-hidden">
+                  <img src={e.img} alt={e.title} className="img-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div className="p-6">
+                  <div className="badge-gold mb-3 !text-xs">{e.freq}</div>
+                  <h3 className="font-['Bebas_Neue'] text-2xl tracking-wide text-[#1A1A1A] mb-2">{e.title}</h3>
+                  <p className="text-lg text-gray-500 leading-relaxed">{e.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── COMMUNITY EVENTS ── */}
+      <section id="comunidad" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="badge mx-auto mb-6">Comunidad</div>
+            <h2 className="section-heading">Eventos de la<br /><span className="text-[#C6002B]">Comunidad Latina</span></h2>
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto mt-4">Más allá de nuestros eventos propios, cubrimos y apoyamos toda la vida cultural y empresarial latina de Jacksonville.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {communityEvents.map(e => (
+              <div key={e.title} className="card overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+                <div className="h-56 overflow-hidden relative">
+                  <img src={e.img} alt={e.title} className="img-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute top-4 left-4">
+                    <span className="badge">{e.type}</span>
                   </div>
                 </div>
-              )
-            })}
+                <div className="p-6">
+                  <h3 className="font-bold text-xl text-[#1A1A1A] mb-2">{e.title}</h3>
+                  <p className="text-lg text-gray-500 mb-4 leading-relaxed">{e.desc}</p>
+                  <div className="flex items-center gap-2 text-base text-gray-400">
+                    <Calendar size={16} className="text-[#C6002B]" />
+                    {e.date}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Produce your event */}
-      <section className="py-20 bg-[#C6002B]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-heading text-5xl text-white mb-4 uppercase">¿Tienes un Evento?<br />Nosotros lo Producimos.</h2>
-          <p className="text-white/80 mb-8">Cobertura completa, producción de video, transmisión en vivo y más.</p>
-          <Link href="/servicios#contacto" className="bg-white text-[#C6002B] font-semibold px-10 py-4 rounded-xl hover:bg-gray-50 transition-colors inline-flex items-center gap-2">
-            Solicitar Cotización <ArrowRight size={18} />
+      <section className="py-24 bg-[#C6002B] relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="font-['Bebas_Neue'] text-6xl text-white mb-4 uppercase">¿Tienes un Evento?<br />Nosotros lo Producimos.</div>
+          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">Cobertura multi-cámara, transmisión en vivo, edición y distribución. Producción completa de principio a fin.</p>
+          <Link href="/servicios#contacto" className="btn-white text-xl px-12 py-5">
+            Solicitar Producción <ArrowRight size={22}/>
           </Link>
         </div>
       </section>

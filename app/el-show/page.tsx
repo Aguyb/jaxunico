@@ -1,6 +1,128 @@
 'use client'
 import Link from 'next/link'
 import { Play, Mic, ArrowRight, CheckCircle, Clock, Users } from 'lucide-react'
+import { useState } from 'react'
+
+function GuestForm() {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setStatus('sending')
+    const form = e.currentTarget
+    const data = new FormData(form)
+    try {
+      const res = await fetch('https://formspree.io/f/mvznkodq', {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      })
+      if (res.ok) {
+        setStatus('success')
+        form.reset()
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
+
+  if (status === 'success') {
+    return (
+      <div className="card p-8 flex flex-col items-center justify-center text-center gap-5 min-h-[400px]">
+        <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center">
+          <CheckCircle size={40} className="text-green-500" />
+        </div>
+        <h3 className="font-['Inter'] font-black text-2xl text-[#1A1A1A]">¡Aplicación Enviada!</h3>
+        <p className="text-gray-500 text-lg max-w-sm leading-relaxed">
+          Recibimos tu solicitud. Te contactaremos en las próximas 48 horas para coordinar tu episodio.
+        </p>
+        <button
+          onClick={() => setStatus('idle')}
+          className="btn-outline !text-base !py-3 !px-6"
+        >
+          Enviar otra aplicación
+        </button>
+      </div>
+    )
+  }
+
+  return (
+    <form className="card p-8 space-y-4" onSubmit={handleSubmit}>
+      <h3 className="font-['Inter'] font-black text-2xl text-[#1A1A1A] mb-2">Aplicar para Ser Invitado</h3>
+      <p className="text-base text-gray-400 mb-4">Respondemos en 48 horas. Sin costo.</p>
+
+      {[
+        ['Nombre completo', 'nombre', 'text', 'Tu nombre', true],
+        ['Negocio / Marca', 'negocio', 'text', 'Nombre de tu empresa', true],
+        ['Email', 'email', 'email', 'tu@email.com', true],
+        ['Teléfono', 'telefono', 'tel', '(904) 000-0000', false],
+        ['Instagram / LinkedIn', 'redes', 'text', '@tuhandle', false],
+        ['Sitio Web', 'web', 'url', 'https://tuempresa.com', false],
+      ].map(([label, name, type, placeholder, required]) => (
+        <div key={name as string}>
+          <label className="block text-xs font-bold text-gray-400 mb-1.5 uppercase tracking-widest">
+            {label as string}{required && <span className="text-[#C6002B] ml-1">*</span>}
+          </label>
+          <input
+            type={type as string}
+            name={name as string}
+            placeholder={placeholder as string}
+            required={required as boolean}
+            className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-base text-[#1A1A1A] focus:outline-none focus:border-[#C6002B] transition-colors"
+          />
+        </div>
+      ))}
+
+      <div>
+        <label className="block text-xs font-bold text-gray-400 mb-1.5 uppercase tracking-widest">
+          ¿Qué hacés? (2–3 oraciones) <span className="text-[#C6002B]">*</span>
+        </label>
+        <textarea
+          name="descripcion"
+          rows={3}
+          required
+          className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-base text-[#1A1A1A] focus:outline-none focus:border-[#C6002B] resize-none"
+        />
+      </div>
+
+      <div>
+        <label className="block text-xs font-bold text-gray-400 mb-1.5 uppercase tracking-widest">
+          Tema principal que quieres discutir <span className="text-[#C6002B]">*</span>
+        </label>
+        <input
+          type="text"
+          name="tema"
+          required
+          className="w-full border-2 border-gray-200 rounded-xl px-4 py-3 text-base text-[#1A1A1A] focus:outline-none focus:border-[#C6002B]"
+        />
+      </div>
+
+      <div className="flex items-start gap-3">
+        <input type="checkbox" id="consent" name="consentimiento" required className="mt-1 w-4 h-4 accent-[#C6002B]" />
+        <label htmlFor="consent" className="text-sm text-gray-500 leading-relaxed">
+          Consiento ser grabado y que el contenido sea publicado en las plataformas de Jax Unico.
+        </label>
+      </div>
+
+      {status === 'error' && (
+        <div className="bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-sm text-red-600 font-semibold">
+          ⚠️ Hubo un error al enviar. Por favor intenta de nuevo.
+        </div>
+      )}
+
+      <button
+        type="submit"
+        disabled={status === 'sending'}
+        className="btn-primary w-full justify-center text-lg py-4 disabled:opacity-60 disabled:cursor-not-allowed"
+      >
+        {status === 'sending' ? 'Enviando...' : <>Enviar Aplicación <ArrowRight size={20} /></>}
+      </button>
+      <p className="text-center text-sm text-gray-400">Sin costo. Respondemos en 48 horas.</p>
+    </form>
+  )
+}
 
 const episodes = Array.from({ length: 6 }, (_, i) => ({
   num: String(i + 1).padStart(3, '0'),
@@ -157,40 +279,7 @@ export default function ElShowPage() {
               </div>
             </div>
             {/* Form */}
-            <form className="card p-8 space-y-4" onSubmit={(e) => e.preventDefault()}>
-              <h3 className="font-heading text-2xl tracking-wide text-[#1A1A1A] mb-2">Aplicar para Ser Invitado</h3>
-              <p className="text-sm text-gray-400 mb-4">Respondemos en 48 horas. Sin costo.</p>
-              {[
-                ['Nombre completo', 'text', 'Tu nombre'],
-                ['Negocio / Marca', 'text', 'Nombre de tu empresa'],
-                ['Email', 'email', 'tu@email.com'],
-                ['Teléfono', 'tel', '(904) 000-0000'],
-                ['Instagram / LinkedIn', 'text', '@tuhandle'],
-                ['Sitio Web', 'url', 'https://tuempresa.com'],
-              ].map(([label, type, placeholder]) => (
-                <div key={label}>
-                  <label className="block text-xs font-mono text-gray-400 mb-1.5 uppercase tracking-widest">{label}</label>
-                  <input type={type} placeholder={placeholder} className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#1A1A1A] focus:outline-none focus:border-[#C6002B] transition-colors" />
-                </div>
-              ))}
-              <div>
-                <label className="block text-xs font-mono text-gray-400 mb-1.5 uppercase tracking-widest">¿Qué hacés? (2–3 oraciones)</label>
-                <textarea rows={3} className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#1A1A1A] focus:outline-none focus:border-[#C6002B] resize-none" />
-              </div>
-              <div>
-                <label className="block text-xs font-mono text-gray-400 mb-1.5 uppercase tracking-widest">Tema principal que quieres discutir</label>
-                <input type="text" className="w-full border border-gray-200 rounded-xl px-4 py-3 font-body text-sm text-[#1A1A1A] focus:outline-none focus:border-[#C6002B]" />
-              </div>
-              <div className="flex items-start gap-3">
-                <input type="checkbox" id="consent" className="mt-1" required />
-                <label htmlFor="consent" className="text-xs text-gray-500">
-                  Consiento ser grabado y que el contenido sea publicado en las plataformas de Jax Unico.
-                </label>
-              </div>
-              <button type="submit" className="btn-primary w-full justify-center text-base py-4">
-                Enviar Aplicación <ArrowRight size={18} />
-              </button>
-            </form>
+            <GuestForm />
           </div>
         </div>
       </section>

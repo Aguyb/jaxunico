@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { Play, ArrowRight, Mic, Video, CheckCircle, TrendingUp, Eye, Users, ChevronRight } from 'lucide-react'
+import NewsletterForm from '@/components/NewsletterForm'
 
 export default function HomePage() {
   return (
@@ -312,13 +313,7 @@ export default function HomePage() {
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="font-['Inter'] font-black tracking-tight text-7xl sm:text-8xl text-white mb-4 tracking-wide">EL UNICO</div>
           <p className="text-white/80 text-2xl mb-10">El newsletter latino de Jacksonville. Noticias, eventos y contenido exclusivo. Gratis.</p>
-          <form className="flex gap-3 max-w-lg mx-auto" onSubmit={e => e.preventDefault()}>
-            <input type="email" placeholder="tu@email.com"
-              className="flex-1 px-6 py-5 rounded-2xl font-semibold text-lg text-[#1A1A1A] placeholder-gray-400 focus:outline-none" />
-            <button type="submit" className="bg-[#1A1A1A] text-white font-bold px-8 py-5 rounded-2xl hover:bg-black text-lg transition-colors">
-              Suscribirme
-            </button>
-          </form>
+          <NewsletterForm variant="dark" />
         </div>
       </section>
 

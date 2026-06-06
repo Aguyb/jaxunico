@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { ArrowRight, Clock, Mic, Play } from 'lucide-react'
+import NewsletterForm from '@/components/NewsletterForm'
 
 const categories = ['Todos', 'Emprendimiento', 'Marketing Digital', 'Historias de Comunidad', 'Eventos', 'Negocios Latinos', 'Producción']
 
@@ -102,14 +103,7 @@ export default function BlogPage() {
               </div>
 
               {/* Newsletter */}
-              <div className="card p-6 bg-[#C6002B] border-none">
-                <div className="font-['Inter'] font-black tracking-tight text-3xl text-white mb-2">El Unico</div>
-                <p className="text-white/80 text-base mb-4 leading-relaxed">El newsletter latino de Jacksonville. Gratis, cada semana.</p>
-                <form onSubmit={e => e.preventDefault()} className="space-y-3">
-                  <input type="email" placeholder="tu@email.com" className="w-full px-4 py-3 rounded-xl text-base font-medium focus:outline-none" />
-                  <button type="submit" className="bg-[#1A1A1A] text-white font-bold w-full py-3 rounded-xl text-base hover:bg-black transition-colors">Suscribirme</button>
-                </form>
-              </div>
+              <NewsletterForm variant="sidebar" />
 
               {/* Categories */}
               <div className="card p-6">

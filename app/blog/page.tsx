@@ -3,14 +3,17 @@ import Link from 'next/link'
 import { ArrowRight, Clock, Mic, Play } from 'lucide-react'
 import NewsletterForm from '@/components/NewsletterForm'
 
+// Articles are fetched from Sanity CMS at jaxunico.com/studio
+// Fallback static data shown until Sanity is configured
+
 const categories = ['Todos', 'Emprendimiento', 'Marketing Digital', 'Historias de Comunidad', 'Eventos', 'Negocios Latinos', 'Producción']
 
 const posts = [
-  { cat: 'Emprendimiento', title: 'Cómo Lanzar tu Negocio Latino en Jacksonville en 2025', excerpt: 'Una guía práctica paso a paso para emprendedores latinos que quieren establecerse en el mercado de Jacksonville y crecer rápido.', readTime: '6 min', img: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80' },
-  { cat: 'Marketing Digital', title: 'Por Qué tu Negocio Necesita un Podcast en 2025', excerpt: 'El podcast sigue siendo el formato más efectivo para construir autoridad y comunidad. Aquí te explicamos cómo empezar.', readTime: '4 min', img: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&q=80' },
-  { cat: 'Historias de Comunidad', title: 'Jacksonville tiene +120,000 Latinos: ¿Y su voz?', excerpt: 'Exploramos el crecimiento de la comunidad latina en Jacksonville y la necesidad urgente de plataformas mediáticas propias.', readTime: '8 min', img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80' },
-  { cat: 'Producción', title: 'Cómo Grabar un Podcast Profesional', excerpt: 'Equipo básico, configuración de audio y los errores más comunes a evitar cuando empezás tu podcast.', readTime: '5 min', img: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=800&q=80' },
-  { cat: 'Negocios Latinos', title: '5 Razones para Anunciar en Medios Latinos', excerpt: 'El ROI de conectar con la comunidad latina supera al de los medios tradicionales. Los datos lo confirman.', readTime: '5 min', img: 'https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&q=80' },
+  { cat: 'Emprendimiento', slug: 'como-lanzar-tu-negocio-latino-en-jacksonville-2025', title: 'Cómo Lanzar tu Negocio Latino en Jacksonville en 2025', excerpt: 'Una guía práctica paso a paso para emprendedores latinos que quieren establecerse en el mercado de Jacksonville y crecer rápido.', readTime: '6 min', img: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80' },
+  { cat: 'Marketing Digital', slug: 'por-que-tu-negocio-necesita-un-podcast-2025', title: 'Por Qué tu Negocio Necesita un Podcast en 2025', excerpt: 'El podcast sigue siendo el formato más efectivo para construir autoridad y comunidad. Aquí te explicamos cómo empezar.', readTime: '4 min', img: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&q=80' },
+  { cat: 'Historias de Comunidad', slug: 'jacksonville-120000-latinos-su-voz', title: 'Jacksonville tiene +120,000 Latinos: ¿Y su voz?', excerpt: 'Exploramos el crecimiento de la comunidad latina en Jacksonville y la necesidad urgente de plataformas mediáticas propias.', readTime: '8 min', img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80' },
+  { cat: 'Producción', slug: 'como-grabar-podcast-profesional', title: 'Cómo Grabar un Podcast Profesional', excerpt: 'Equipo básico, configuración de audio y los errores más comunes a evitar cuando empezás tu podcast.', readTime: '5 min', img: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=800&q=80' },
+  { cat: 'Negocios Latinos', slug: '5-razones-anunciar-medios-latinos', title: '5 Razones para Anunciar en Medios Latinos', excerpt: 'El ROI de conectar con la comunidad latina supera al de los medios tradicionales. Los datos lo confirman.', readTime: '5 min', img: 'https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&q=80' },
 ]
 
 const suggestedEpisodes = [
@@ -47,7 +50,7 @@ export default function BlogPage() {
                   <p className="text-xl text-gray-500 leading-relaxed mb-6">{posts[0].excerpt}</p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2 text-base text-gray-400 font-semibold"><Clock size={16} />{posts[0].readTime} lectura</div>
-                    <Link href="#" className="text-lg font-bold text-[#C6002B] flex items-center gap-2 hover:gap-3 transition-all">Leer Artículo <ArrowRight size={18}/></Link>
+                    <Link href={`/blog/${posts[0].slug}`} className="text-lg font-bold text-[#C6002B] flex items-center gap-2 hover:gap-3 transition-all">Leer Artículo <ArrowRight size={18}/></Link>
                   </div>
                 </div>
               </div>
@@ -64,7 +67,7 @@ export default function BlogPage() {
               {/* Grid */}
               <div className="grid sm:grid-cols-2 gap-7">
                 {posts.slice(1).map(post => (
-                  <div key={post.title} className="card overflow-hidden group hover:-translate-y-2 transition-all duration-300 cursor-pointer">
+                  <Link key={post.title} href={`/blog/${post.slug}`} className="card overflow-hidden group hover:-translate-y-2 transition-all duration-300 cursor-pointer block">
                     <div className="h-44 overflow-hidden">
                       <img src={post.img} alt={post.title} className="img-cover group-hover:scale-105 transition-transform duration-500" />
                     </div>
@@ -77,7 +80,7 @@ export default function BlogPage() {
                         <span className="text-base font-bold text-[#C6002B] flex items-center gap-1">Leer <ArrowRight size={14}/></span>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>

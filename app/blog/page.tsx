@@ -42,7 +42,7 @@ export default function BlogPage() {
                 </div>
                 <div className="p-8">
                   <div className="badge mb-4">Artículo Destacado</div>
-                  <h2 className="font-['Bebas_Neue'] text-4xl tracking-wide text-[#1A1A1A] mb-4">{posts[0].title}</h2>
+                  <h2 className="font-['Inter'] font-black tracking-tight text-4xl tracking-wide text-[#1A1A1A] mb-4">{posts[0].title}</h2>
                   <p className="text-xl text-gray-500 leading-relaxed mb-6">{posts[0].excerpt}</p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2 text-base text-gray-400 font-semibold"><Clock size={16} />{posts[0].readTime} lectura</div>
@@ -87,7 +87,7 @@ export default function BlogPage() {
               <div className="rounded-3xl overflow-hidden border-2 border-[#C9A84C] relative">
                 <div className="bg-[#1A1A1A] p-6 text-center">
                   <div className="badge-gold mx-auto mb-3">Espacio Publicitario</div>
-                  <h3 className="font-['Bebas_Neue'] text-3xl text-white mb-2">Tu Marca Aquí</h3>
+                  <h3 className="font-['Inter'] font-black tracking-tight text-3xl text-white mb-2">Tu Marca Aquí</h3>
                   <p className="text-gray-400 text-base mb-4">Llega a miles de emprendedores y profesionales latinos de Jacksonville.</p>
                   <div className="bg-[#C9A84C]/10 border border-[#C9A84C]/30 rounded-2xl p-4 mb-5">
                     <div className="text-[#C9A84C] font-bold text-base uppercase tracking-widest mb-2">Incluye</div>
@@ -103,7 +103,7 @@ export default function BlogPage() {
 
               {/* Newsletter */}
               <div className="card p-6 bg-[#C6002B] border-none">
-                <div className="font-['Bebas_Neue'] text-3xl text-white mb-2">El Unico</div>
+                <div className="font-['Inter'] font-black tracking-tight text-3xl text-white mb-2">El Unico</div>
                 <p className="text-white/80 text-base mb-4 leading-relaxed">El newsletter latino de Jacksonville. Gratis, cada semana.</p>
                 <form onSubmit={e => e.preventDefault()} className="space-y-3">
                   <input type="email" placeholder="tu@email.com" className="w-full px-4 py-3 rounded-xl text-base font-medium focus:outline-none" />
@@ -113,7 +113,7 @@ export default function BlogPage() {
 
               {/* Categories */}
               <div className="card p-6">
-                <h3 className="font-['Bebas_Neue'] text-2xl tracking-wide text-[#1A1A1A] mb-5">Categorías</h3>
+                <h3 className="font-['Inter'] font-black tracking-tight text-2xl tracking-wide text-[#1A1A1A] mb-5">Categorías</h3>
                 <div className="space-y-2">
                   {categories.slice(1).map(cat => (
                     <button key={cat} className="w-full flex items-center justify-between px-4 py-3 rounded-xl hover:bg-red-50 hover:text-[#C6002B] transition-colors text-left group">
@@ -143,7 +143,7 @@ export default function BlogPage() {
           <div className="flex items-end justify-between mb-10">
             <div>
               <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mb-4">Podcast</div>
-              <h2 className="font-['Bebas_Neue'] text-5xl text-white tracking-wide">Episodios que<br /><span className="text-[#C6002B]">No te Puedes Perder</span></h2>
+              <h2 className="font-['Inter'] font-black tracking-tight text-5xl text-white tracking-wide">Episodios que<br /><span className="text-[#C6002B]">No te Puedes Perder</span></h2>
             </div>
             <Link href="/el-show" className="hidden md:flex items-center gap-2 text-lg font-bold text-[#C6002B] hover:gap-3 transition-all">
               Ver todos <ArrowRight size={18}/>

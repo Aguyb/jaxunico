@@ -68,7 +68,7 @@ export default function ServiciosPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mb-6">Aguyb Studios</div>
-            <h1 className="font-['Bebas_Neue'] text-7xl lg:text-[100px] leading-none tracking-wide text-white mb-8 uppercase">
+            <h1 className="font-['Inter'] font-black tracking-tight text-7xl lg:text-[100px] leading-none tracking-wide text-white mb-8 uppercase">
               Producción<br /><span className="text-[#C6002B]">Que Vende.</span>
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed mb-10 max-w-xl">
@@ -92,7 +92,7 @@ export default function ServiciosPage() {
               { stat: '287%', label: 'Más leads con múltiples canales', desc: 'Podcast + video + redes = crecimiento exponencial.' },
             ].map(s => (
               <div key={s.stat}>
-                <div className="font-['Bebas_Neue'] text-7xl mb-2">{s.stat}</div>
+                <div className="font-['Inter'] font-black tracking-tight text-7xl mb-2">{s.stat}</div>
                 <div className="font-bold text-xl mb-2">{s.label}</div>
                 <div className="text-white/70 text-lg">{s.desc}</div>
               </div>
@@ -122,7 +122,7 @@ export default function ServiciosPage() {
                       </div>
                       <div>
                         <div className="text-sm font-bold text-gray-300 uppercase tracking-widest">{s.num}</div>
-                        <h3 className="font-['Bebas_Neue'] text-4xl tracking-wide text-[#1A1A1A]">{s.title}</h3>
+                        <h3 className="font-['Inter'] font-black tracking-tight text-4xl tracking-wide text-[#1A1A1A]">{s.title}</h3>
                       </div>
                     </div>
                     <p className="text-xl text-gray-500 leading-relaxed mb-5">{s.desc}</p>
@@ -160,10 +160,10 @@ export default function ServiciosPage() {
             {steps.map((step, i) => (
               <div key={step.num} className="text-center group">
                 <div className="w-20 h-20 bg-[#C6002B] rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-red-900/20">
-                  <span className="font-['Bebas_Neue'] text-3xl text-white">{step.num}</span>
+                  <span className="font-['Inter'] font-black tracking-tight text-3xl text-white">{step.num}</span>
                 </div>
                 {i < 3 && <div className="hidden md:block absolute mt-10 ml-[calc(50%+40px)] w-[calc(100%-80px)] h-0.5 bg-[#C6002B]/20" />}
-                <h3 className="font-['Bebas_Neue'] text-2xl tracking-wide text-[#1A1A1A] mb-3">{step.title}</h3>
+                <h3 className="font-['Inter'] font-black tracking-tight text-2xl tracking-wide text-[#1A1A1A] mb-3">{step.title}</h3>
                 <p className="text-lg text-gray-500 leading-relaxed">{step.desc}</p>
               </div>
             ))}
@@ -177,7 +177,7 @@ export default function ServiciosPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mb-6">Hablemos</div>
-              <h2 className="font-['Bebas_Neue'] text-6xl text-white leading-none uppercase mb-6">
+              <h2 className="font-['Inter'] font-black tracking-tight text-6xl text-white leading-none uppercase mb-6">
                 Tu Primera<br />Llamada<br /><span className="text-[#C6002B]">Es Gratis.</span>
               </h2>
               <p className="text-xl text-gray-400 leading-relaxed mb-8">Sin presión. Sin compromiso. 30 minutos para ver si somos el equipo correcto para tu marca.</p>

@@ -31,7 +31,7 @@ export default function AnunciaPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mb-6">Publicidad y Patrocinios</div>
-            <h1 className="font-['Bebas_Neue'] text-7xl lg:text-[100px] leading-none tracking-wide text-white mb-8 uppercase">
+            <h1 className="font-['Inter'] font-black tracking-tight text-7xl lg:text-[100px] leading-none tracking-wide text-white mb-8 uppercase">
               Llega a la<br />Comunidad<br />Latina Más<br /><span className="text-[#C6002B]">Activa de JAX.</span>
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed mb-10 max-w-xl">
@@ -51,7 +51,7 @@ export default function AnunciaPage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
             {[['+120,000','Latinos en Jacksonville'],['+14','Canales de distribución'],['8','Episodios por mes'],['25–55','Rango de edad audiencia']].map(([v,l]) => (
               <div key={l}>
-                <div className="font-['Bebas_Neue'] text-6xl">{v}</div>
+                <div className="font-['Inter'] font-black tracking-tight text-6xl">{v}</div>
                 <div className="text-white/70 text-lg font-semibold mt-1">{l}</div>
               </div>
             ))}
@@ -92,7 +92,7 @@ export default function AnunciaPage() {
                       <Play size={36} className="text-white ml-3" fill="white" />
                     </div>
                   </div>
-                  <div className="font-['Bebas_Neue'] text-2xl text-white tracking-widest">VER SHOWREEL DE ADS</div>
+                  <div className="font-['Inter'] font-black tracking-tight text-2xl text-white tracking-widest">VER SHOWREEL DE ADS</div>
                   <div className="text-gray-400 text-base mt-1">Próximamente disponible</div>
                 </div>
               </div>
@@ -136,7 +136,7 @@ export default function AnunciaPage() {
               <div key={plan.name} className={`card p-7 flex flex-col ${plan.popular ? 'border-[#C6002B] border-2 relative' : ''}`}>
                 {plan.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2"><span className="badge whitespace-nowrap">Más Popular</span></div>}
                 <div className="mb-5">
-                  <div className="font-['Bebas_Neue'] text-3xl tracking-wide text-[#1A1A1A]">{plan.name}</div>
+                  <div className="font-['Inter'] font-black tracking-tight text-3xl tracking-wide text-[#1A1A1A]">{plan.name}</div>
                   <div className="text-base font-semibold text-gray-400">{plan.subtitle}</div>
                 </div>
                 <div className="flex-1 space-y-3 mb-6">
@@ -171,7 +171,7 @@ export default function AnunciaPage() {
           <div className="grid md:grid-cols-2 gap-6">
             {nationalPlans.map(plan => (
               <div key={plan.name} className="card p-7 hover:border-[#C6002B]/30 hover:-translate-y-1 transition-all">
-                <h3 className="font-['Bebas_Neue'] text-2xl tracking-wide text-[#1A1A1A] mb-3">{plan.name}</h3>
+                <h3 className="font-['Inter'] font-black tracking-tight text-2xl tracking-wide text-[#1A1A1A] mb-3">{plan.name}</h3>
                 <p className="text-lg text-gray-500 mb-5">{plan.desc}</p>
                 <Link href="#contacto" className="text-[#C6002B] font-bold text-lg flex items-center gap-2 hover:gap-3 transition-all">
                   Solicitar Información <ArrowRight size={18}/>
@@ -189,7 +189,7 @@ export default function AnunciaPage() {
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 bg-[#C6002B]/10 rounded-2xl flex items-center justify-center"><BarChart3 size={22} className="text-[#C6002B]"/></div>
-                <h3 className="font-['Bebas_Neue'] text-3xl tracking-wide">Beneficios Digitales</h3>
+                <h3 className="font-['Inter'] font-black tracking-tight text-3xl tracking-wide">Beneficios Digitales</h3>
               </div>
               {['Reporte mensual de ROI con métricas detalladas','Portal dedicado con capturas y estadísticas','Links UTM para trackear clicks exactos','Dashboard de impresiones por plataforma','Primer right of refusal al renovar'].map(item => (
                 <div key={item} className="flex items-start gap-3 mb-4">
@@ -201,7 +201,7 @@ export default function AnunciaPage() {
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 bg-amber-50 rounded-2xl flex items-center justify-center"><Package size={22} className="text-[#C9A84C]"/></div>
-                <h3 className="font-['Bebas_Neue'] text-3xl tracking-wide">Beneficios Físicos</h3>
+                <h3 className="font-['Inter'] font-black tracking-tight text-3xl tracking-wide">Beneficios Físicos</h3>
               </div>
               {['Certificado enmarcado "Official Jax Unico Partner"','Merch de bienvenida de Aguyb Studios','Invitación a grabar como VIP guest','Logo en backdrop del estudio — en todos los videos','Inclusión en programas impresos de eventos'].map(item => (
                 <div key={item} className="flex items-start gap-3 mb-4">
@@ -220,7 +220,7 @@ export default function AnunciaPage() {
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="font-['Bebas_Neue'] text-6xl text-white leading-none mb-6 uppercase">Tu Marca<br />Pertenece<br />Aquí.</h2>
+              <h2 className="font-['Inter'] font-black tracking-tight text-6xl text-white leading-none mb-6 uppercase">Tu Marca<br />Pertenece<br />Aquí.</h2>
               <p className="text-xl text-white/80 mb-8 leading-relaxed">Conversemos sobre cómo conectar tu marca con la comunidad latina más activa de Jacksonville.</p>
               <div className="flex items-center gap-3 mb-4">
                 <Mail size={20} className="text-white shrink-0" />

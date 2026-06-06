@@ -27,7 +27,7 @@ export default function Navbar() {
               </svg>
             </div>
             <div>
-              <div className="font-['Bebas_Neue'] text-2xl tracking-widest text-[#1A1A1A] leading-none">JAXUNICO</div>
+              <div className="font-['Inter'] font-black tracking-tight text-2xl tracking-widest text-[#1A1A1A] leading-none">JAXUNICO</div>
               <div className="text-[10px] font-bold text-gray-400 tracking-widest uppercase">La Plataforma Latina</div>
             </div>
           </Link>

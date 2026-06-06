@@ -21,7 +21,7 @@ export default function EventosPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mb-6">Eventos</div>
-            <h1 className="font-['Bebas_Neue'] text-7xl lg:text-8xl text-white leading-none mb-8 uppercase">
+            <h1 className="font-['Inter'] font-black tracking-tight text-7xl lg:text-8xl text-white leading-none mb-8 uppercase">
               Experiencias<br />que <span className="text-[#C6002B]">Conectan</span><br />Nuestra<br />Comunidad.
             </h1>
             <p className="text-xl text-gray-300 mb-10 leading-relaxed">Networking, summits, festivales y más — el calendario de la comunidad latina de Jacksonville.</p>
@@ -65,7 +65,7 @@ export default function EventosPage() {
             {/* Registration form */}
             <div className="card p-10 border-2 border-[#C6002B]">
               <div className="badge mb-4">Únete a Nuestro Evento Anual</div>
-              <h3 className="font-['Bebas_Neue'] text-4xl text-[#1A1A1A] mb-2">Regístrate y Mantente Informado</h3>
+              <h3 className="font-['Inter'] font-black tracking-tight text-4xl text-[#1A1A1A] mb-2">Regístrate y Mantente Informado</h3>
               <p className="text-lg text-gray-500 mb-8">Completa el formulario y serás el primero en saber la fecha, ubicación y cómo participar — como asistente, expositor o speaker.</p>
               <form className="space-y-5" onSubmit={e => e.preventDefault()}>
                 {[
@@ -133,7 +133,7 @@ export default function EventosPage() {
                 </div>
                 <div className="p-6">
                   <div className="badge-gold mb-3 !text-xs">{e.freq}</div>
-                  <h3 className="font-['Bebas_Neue'] text-2xl tracking-wide text-[#1A1A1A] mb-2">{e.title}</h3>
+                  <h3 className="font-['Inter'] font-black tracking-tight text-2xl tracking-wide text-[#1A1A1A] mb-2">{e.title}</h3>
                   <p className="text-lg text-gray-500 leading-relaxed">{e.desc}</p>
                 </div>
               </div>
@@ -177,7 +177,7 @@ export default function EventosPage() {
       <section className="py-24 bg-[#C6002B] relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="font-['Bebas_Neue'] text-6xl text-white mb-4 uppercase">¿Tienes un Evento?<br />Nosotros lo Producimos.</div>
+          <div className="font-['Inter'] font-black tracking-tight text-6xl text-white mb-4 uppercase">¿Tienes un Evento?<br />Nosotros lo Producimos.</div>
           <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">Cobertura multi-cámara, transmisión en vivo, edición y distribución. Producción completa de principio a fin.</p>
           <Link href="/servicios#contacto" className="btn-white text-xl px-12 py-5">
             Solicitar Producción <ArrowRight size={22}/>

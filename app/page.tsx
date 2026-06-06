@@ -19,7 +19,7 @@ export default function HomePage() {
               <span className="w-2 h-2 rounded-full bg-[#C6002B] animate-pulse" />
               Jacksonville, Florida
             </div>
-            <h1 className="font-['Bebas_Neue'] text-7xl sm:text-8xl lg:text-[110px] leading-none tracking-wide text-white mb-8 uppercase">
+            <h1 className="font-['Inter'] font-black tracking-tight text-7xl sm:text-8xl lg:text-[110px] leading-none tracking-wide text-white mb-8 uppercase">
               Tu Voz.<br />
               <span className="text-[#C6002B]">Tu Historia.</span><br />
               Tu Plataforma.
@@ -152,7 +152,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="p-7">
-                  <h3 className="font-['Bebas_Neue'] text-3xl tracking-wide text-[#1A1A1A] mb-3">{item.title}</h3>
+                  <h3 className="font-['Inter'] font-black tracking-tight text-3xl tracking-wide text-[#1A1A1A] mb-3">{item.title}</h3>
                   <p className="text-gray-500 text-lg leading-relaxed mb-5">{item.desc}</p>
                   <Link href={item.href} className="text-[#C6002B] font-bold text-lg flex items-center gap-2 hover:gap-3 transition-all">
                     {item.cta} <ChevronRight size={20} />
@@ -170,7 +170,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mb-6">Producción Visual</div>
-              <h2 className="font-['Bebas_Neue'] text-6xl lg:text-7xl leading-none tracking-wide text-white mb-8 uppercase">
+              <h2 className="font-['Inter'] font-black tracking-tight text-6xl lg:text-7xl leading-none tracking-wide text-white mb-8 uppercase">
                 Lo Visual<br />
                 <span className="text-[#C6002B]">Impulsa</span><br />
                 tus Ventas.
@@ -203,11 +203,11 @@ export default function HomePage() {
                   alt="Video production" className="img-cover" />
               </div>
               <div className="absolute -bottom-6 -left-6 bg-[#C6002B] rounded-3xl p-6 shadow-2xl float-y">
-                <div className="text-white font-['Bebas_Neue'] text-5xl leading-none">+94%</div>
+                <div className="text-white font-['Inter'] font-black tracking-tight text-5xl leading-none">+94%</div>
                 <div className="text-red-200 text-base font-semibold mt-1">Más engagement<br/>con video</div>
               </div>
               <div className="absolute -top-6 -right-6 bg-white rounded-3xl p-5 shadow-2xl wiggle" style={{animationDelay:'2s'}}>
-                <div className="text-[#C6002B] font-['Bebas_Neue'] text-4xl leading-none">24/7</div>
+                <div className="text-[#C6002B] font-['Inter'] font-black tracking-tight text-4xl leading-none">24/7</div>
                 <div className="text-gray-500 text-sm font-semibold mt-1">Contenido<br/>activo</div>
               </div>
             </div>
@@ -281,7 +281,7 @@ export default function HomePage() {
                 </div>
                 <div className="absolute bottom-5 left-5 right-5">
                   <div className="text-xs font-bold text-white/60 mb-1 uppercase tracking-widest">EP. 001 · 45 MIN</div>
-                  <div className="font-['Bebas_Neue'] text-3xl text-white">Tu Historia Merece Ser Escuchada</div>
+                  <div className="font-['Inter'] font-black tracking-tight text-3xl text-white">Tu Historia Merece Ser Escuchada</div>
                 </div>
               </div>
             </div>
@@ -310,7 +310,7 @@ export default function HomePage() {
       <section className="py-24 bg-[#C6002B] relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="font-['Bebas_Neue'] text-7xl sm:text-8xl text-white mb-4 tracking-wide">EL UNICO</div>
+          <div className="font-['Inter'] font-black tracking-tight text-7xl sm:text-8xl text-white mb-4 tracking-wide">EL UNICO</div>
           <p className="text-white/80 text-2xl mb-10">El newsletter latino de Jacksonville. Noticias, eventos y contenido exclusivo. Gratis.</p>
           <form className="flex gap-3 max-w-lg mx-auto" onSubmit={e => e.preventDefault()}>
             <input type="email" placeholder="tu@email.com"
@@ -328,11 +328,11 @@ export default function HomePage() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C6002B] rounded-full blur-3xl" />
         </div>
         <div className="relative max-w-3xl mx-auto px-4">
-          <p className="font-['Bebas_Neue'] text-5xl sm:text-6xl text-white mb-4 tracking-wide">TU HISTORIA MERECE SER ESCUCHADA.</p>
+          <p className="font-['Inter'] font-black tracking-tight text-5xl sm:text-6xl text-white mb-4 tracking-wide">TU HISTORIA MERECE SER ESCUCHADA.</p>
           <div className="w-32 h-1.5 bg-[#C9A84C] mx-auto my-8 rounded-full" />
-          <p className="font-['Bebas_Neue'] text-5xl sm:text-6xl text-white mb-4 tracking-wide">TU NEGOCIO MERECE CRECER.</p>
+          <p className="font-['Inter'] font-black tracking-tight text-5xl sm:text-6xl text-white mb-4 tracking-wide">TU NEGOCIO MERECE CRECER.</p>
           <div className="w-32 h-1.5 bg-[#C9A84C] mx-auto my-8 rounded-full" />
-          <p className="font-['Bebas_Neue'] text-5xl sm:text-6xl text-[#C6002B] mb-12 tracking-wide">TU COMUNIDAD TE ESTÁ ESPERANDO.</p>
+          <p className="font-['Inter'] font-black tracking-tight text-5xl sm:text-6xl text-[#C6002B] mb-12 tracking-wide">TU COMUNIDAD TE ESTÁ ESPERANDO.</p>
           <div className="flex justify-center gap-4 flex-wrap">
             <Link href="/servicios" className="btn-primary text-xl px-10 py-5">Comencemos <ArrowRight size={22}/></Link>
             <Link href="/anuncia" className="border-2 border-white/20 text-white hover:border-white font-semibold px-10 py-5 rounded-2xl transition-all text-xl inline-flex items-center gap-2">

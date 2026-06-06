@@ -25,7 +25,7 @@ export default function DirectorioPage() {
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mx-auto mb-6">Directorio Latino</div>
-          <h1 className="font-['Bebas_Neue'] text-7xl lg:text-8xl text-white leading-none mb-6 uppercase">
+          <h1 className="font-['Inter'] font-black tracking-tight text-7xl lg:text-8xl text-white leading-none mb-6 uppercase">
             Encuentra, Apoya<br />y <span className="text-[#C6002B]">Compra Latino</span><br />en Jacksonville.
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-10">El directorio completo de negocios latinos en Jacksonville. Busca, conecta y apoya a tu comunidad.</p>
@@ -56,7 +56,7 @@ export default function DirectorioPage() {
       {/* Listings */}
       <section className="py-20 bg-[#F7F7F7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-['Bebas_Neue'] text-4xl tracking-wide text-[#1A1A1A] mb-10">Negocios Destacados</h2>
+          <h2 className="font-['Inter'] font-black tracking-tight text-4xl tracking-wide text-[#1A1A1A] mb-10">Negocios Destacados</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {businesses.map(biz => (
               <div key={biz.name} className="card overflow-hidden group hover:-translate-y-2 transition-all duration-300">
@@ -94,7 +94,7 @@ export default function DirectorioPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="font-['Bebas_Neue'] text-6xl text-white leading-none mb-6 uppercase">Registra tu<br />Negocio Gratis</h2>
+              <h2 className="font-['Inter'] font-black tracking-tight text-6xl text-white leading-none mb-6 uppercase">Registra tu<br />Negocio Gratis</h2>
               <p className="text-xl text-white/80 leading-relaxed mb-6">Llega a +120,000 latinos en Jacksonville. Gratis. Sin complicaciones.</p>
               {['Listing completo en el directorio', 'Feature en redes sociales de Jax Unico', 'Mención en newsletter mensual', 'Conexión con la red latina de Jacksonville'].map(item => (
                 <div key={item} className="flex items-center gap-3 mb-3">
@@ -104,7 +104,7 @@ export default function DirectorioPage() {
               ))}
             </div>
             <form className="bg-white rounded-3xl p-8 space-y-4" onSubmit={e => e.preventDefault()}>
-              <h3 className="font-['Bebas_Neue'] text-3xl text-[#1A1A1A] mb-2">Registrar mi Negocio</h3>
+              <h3 className="font-['Inter'] font-black tracking-tight text-3xl text-[#1A1A1A] mb-2">Registrar mi Negocio</h3>
               {['Nombre del negocio', 'Categoría', 'Dirección en Jacksonville', 'Teléfono', 'Sitio Web', 'Email de contacto'].map(f => (
                 <input key={f} type="text" placeholder={f} className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-medium focus:outline-none focus:border-[#C6002B]" />
               ))}

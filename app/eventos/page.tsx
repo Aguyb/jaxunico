@@ -1,4 +1,4 @@
-'use client'
+import { getAllEvents } from '@/lib/sanity.queries'
 import Link from 'next/link'
 import { Calendar, MapPin, Users, ArrowRight, Mic, Star, CheckCircle, Building2 } from 'lucide-react'
 

@@ -6,4 +6,7 @@ export default defineCliConfig({
     dataset: 'production',
   },
   studioHost: 'jaxunico',
+  deployment: {
+    appId: 'tviou62dnpn9ka5zhhbarcop',
+  },
 })

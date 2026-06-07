@@ -1,12 +1,12 @@
 'use client'
 import { useEffect } from 'react'
 
+const PROJECT_ID = '24ezss24'
+const STUDIO_URL = `https://${PROJECT_ID}.sanity.studio`
+
 export default function StudioPage() {
   useEffect(() => {
-    // Redirect to Sanity's hosted studio
-    // Replace YOUR_PROJECT_ID with your actual Sanity project ID
-    const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'your-project-id'
-    window.location.href = `https://${projectId}.sanity.studio`
+    window.location.href = STUDIO_URL
   }, [])
 
   return (
@@ -21,15 +21,12 @@ export default function StudioPage() {
       flexDirection: 'column',
       gap: '16px'
     }}>
-      <div style={{ fontSize: '32px' }}>🎛️</div>
-      <div style={{ fontSize: '18px', fontWeight: 700 }}>Redirecting to Jax Unico Studio...</div>
+      <div style={{ fontSize: '40px' }}>🎛️</div>
+      <div style={{ fontSize: '20px', fontWeight: 700 }}>Abriendo Jax Unico Studio...</div>
       <div style={{ fontSize: '14px', color: '#888' }}>
-        If not redirected,{' '}
-        <a
-          href={`https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'your-project-id'}.sanity.studio`}
-          style={{ color: '#C6002B' }}
-        >
-          click here
+        Si no abre automáticamente,{' '}
+        <a href={STUDIO_URL} style={{ color: '#C6002B', fontWeight: 700 }}>
+          haz clic aquí
         </a>
       </div>
     </div>

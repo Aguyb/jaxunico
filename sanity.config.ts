@@ -2,12 +2,15 @@ import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { schemaTypes } from './sanity/schemas'
 
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || '24ezss24'
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
+
 export default defineConfig({
   name: 'jaxunico',
   title: 'Jax Unico CMS',
   basePath: '/studio',
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  projectId,
+  dataset,
   plugins: [
     structureTool({
       structure: (S) =>

@@ -8,6 +8,7 @@ const nextConfig = {
     ],
   },
   staticPageGenerationTimeout: 180,
+  transpilePackages: ['sanity', '@sanity/vision', 'next-sanity'],
 }
 
 module.exports = nextConfig

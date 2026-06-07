@@ -3,6 +3,7 @@ import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Ticker from '@/components/Ticker'
+import { LangProvider } from '@/lib/lang'
 
 export const metadata: Metadata = {
   title: 'Jax Unico — La Plataforma Latina de Jacksonville',
@@ -13,10 +14,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es">
       <body>
-        <Navbar />
-        <Ticker />
-        <main>{children}</main>
-        <Footer />
+        <LangProvider>
+          <Navbar />
+          <Ticker />
+          <main>{children}</main>
+          <Footer />
+        </LangProvider>
       </body>
     </html>
   )

@@ -34,7 +34,7 @@ export default async function EpisodePage({ params }: { params: { slug: string }
           <div className="text-gray-400 font-bold text-sm uppercase tracking-widest mb-3">
             EP. {String(episode.episodeNumber).padStart(3, '0')}
           </div>
-          <h1 className="font-['Inter'] font-black text-5xl lg:text-6xl text-white leading-tight mb-4">
+          <h1 className="font-['Inter'] font-black text-5xl lg:text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-4">
             {episode.title}
           </h1>
           {episode.guest && (

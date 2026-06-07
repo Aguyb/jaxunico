@@ -143,7 +143,7 @@ export default async function BlogPage() {
           <div className="flex items-end justify-between mb-10">
             <div>
               <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mb-4">Podcast</div>
-              <h2 className="font-['Inter'] font-black text-5xl text-white tracking-tight">Episodios que<br /><span className="text-[#C6002B]">No te Puedes Perder</span></h2>
+              <h2 className="font-['Inter'] font-black text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">Episodios que<br /><span className="text-[#C6002B]">No te Puedes Perder</span></h2>
             </div>
             <Link href="/el-show" className="hidden md:flex items-center gap-2 text-lg font-bold text-[#C6002B] hover:gap-3 transition-all">
               Ver todos <ArrowRight size={18}/>

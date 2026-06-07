@@ -12,7 +12,7 @@ export default function EventosPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-[#1A1A1A] py-24 lg:py-32 overflow-hidden">
+      <section className="relative bg-[#1A1A1A] py-14 sm:py-12 sm:py-16 lg:py-20 overflow-hidden">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&q=80"
             alt="Events" className="w-full h-full object-cover opacity-25" />
@@ -21,22 +21,22 @@ export default function EventosPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mb-6">Eventos</div>
-            <h1 className="font-['Inter'] font-black tracking-tight text-7xl lg:text-8xl text-white leading-none mb-8 uppercase">
+            <h1 className="font-['Inter'] font-black tracking-tight text-4xl sm:text-5xl lg:text-7xl text-white leading-none mb-8 uppercase">
               Experiencias<br />que <span className="text-[#C6002B]">Conectan</span><br />Nuestra<br />Comunidad.
             </h1>
             <p className="text-xl text-gray-300 mb-10 leading-relaxed">Networking, summits, festivales y más — el calendario de la comunidad latina de Jacksonville.</p>
             <div className="flex gap-4 flex-wrap">
-              <Link href="#anual" className="btn-primary text-xl px-10 py-5">Nuestro Evento Anual <ArrowRight size={22}/></Link>
-              <Link href="#comunidad" className="border-2 border-white/30 text-white hover:border-white font-semibold px-10 py-5 rounded-2xl transition-all text-xl inline-flex items-center gap-2">Ver Comunidad</Link>
+              <Link href="#anual" className="btn-primary text-xl px-5 py-3 sm:px-8 sm:py-4">Nuestro Evento Anual <ArrowRight size={22}/></Link>
+              <Link href="#comunidad" className="border-2 border-white/30 text-white hover:border-white font-semibold px-5 py-3 sm:px-8 sm:py-4 rounded-2xl transition-all text-xl inline-flex items-center gap-2">Ver Comunidad</Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* ── ANNUAL EVENT ── */}
-      <section id="anual" className="py-24 bg-white">
+      <section id="anual" className="py-14 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             <div>
               <div className="badge-gold mb-6">Evento Anual</div>
               <h2 className="section-heading mb-6">
@@ -144,7 +144,7 @@ export default function EventosPage() {
       </section>
 
       {/* ── COMMUNITY EVENTS ── */}
-      <section id="comunidad" className="py-24 bg-white">
+      <section id="comunidad" className="py-14 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="badge mx-auto mb-6">Comunidad</div>
@@ -178,9 +178,9 @@ export default function EventosPage() {
       <section className="py-24 bg-[#C6002B] relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="font-['Inter'] font-black tracking-tight text-6xl text-white mb-4 uppercase">¿Tienes un Evento?<br />Nosotros lo Producimos.</div>
+          <div className="font-['Inter'] font-black tracking-tight text-4xl sm:text-5xl lg:text-6xl text-white mb-4 uppercase">¿Tienes un Evento?<br />Nosotros lo Producimos.</div>
           <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">Cobertura multi-cámara, transmisión en vivo, edición y distribución. Producción completa de principio a fin.</p>
-          <Link href="/servicios#contacto" className="btn-white text-xl px-12 py-5">
+          <Link href="/servicios#contacto" className="btn-white text-xl px-5 py-3 sm:px-10 sm:py-5">
             Solicitar Producción <ArrowRight size={22}/>
           </Link>
         </div>

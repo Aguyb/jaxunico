@@ -65,7 +65,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
       {/* Newsletter */}
       <section className="py-20 bg-[#C6002B]">
         <div className="max-w-2xl mx-auto px-4 text-center">
-          <div className="font-['Inter'] font-black text-5xl text-white mb-3">El Unico</div>
+          <div className="font-['Inter'] font-black text-3xl sm:text-4xl lg:text-5xl text-white mb-3">El Unico</div>
           <p className="text-white/80 text-xl mb-8">Suscríbete al newsletter latino de Jacksonville. Gratis.</p>
           <NewsletterForm variant="dark" />
         </div>

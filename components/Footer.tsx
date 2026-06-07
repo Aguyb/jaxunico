@@ -1,7 +1,10 @@
+'use client'
 import Link from 'next/link'
+import { useLang } from '@/lib/lang'
 import { Instagram, Youtube, Facebook, Linkedin, Mail, Phone, MapPin } from 'lucide-react'
 
 export default function Footer() {
+  const { t } = useLang()
   return (
     <footer className="bg-[#1A1A1A] text-white">
       {/* Red separator line */}

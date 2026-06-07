@@ -62,7 +62,7 @@ export default function ServiciosPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-[#1A1A1A] py-24 lg:py-32 overflow-hidden">
+      <section className="relative bg-[#1A1A1A] py-14 sm:py-12 sm:py-16 lg:py-20 overflow-hidden">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1600&q=80"
             alt="Studio" className="w-full h-full object-cover opacity-20" />
@@ -71,15 +71,15 @@ export default function ServiciosPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mb-6">Aguyb Studios</div>
-            <h1 className="font-['Inter'] font-black tracking-tight text-7xl lg:text-[100px] leading-none tracking-wide text-white mb-8 uppercase">
+            <h1 className="font-['Inter'] font-black tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-none tracking-wide text-white mb-8 uppercase">
               Producción<br /><span className="text-[#C6002B]">Que Vende.</span>
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed mb-10 max-w-xl">
               Producimos contenido visual, podcast y comerciales para marcas latinas en Jacksonville. Entendemos tu cultura y sabemos cómo llegar a tu audiencia.
             </p>
             <div className="flex gap-4 flex-wrap">
-              <Link href="#contacto" className="btn-primary text-xl px-10 py-5">Solicitar Propuesta <ArrowRight size={22}/></Link>
-              <Link href="#servicios" className="border-2 border-white/30 text-white hover:border-white font-semibold px-10 py-5 rounded-2xl transition-all text-xl inline-flex items-center gap-2">Ver Servicios</Link>
+              <Link href="#contacto" className="btn-primary text-xl px-5 py-3 sm:px-8 sm:py-4">Solicitar Propuesta <ArrowRight size={22}/></Link>
+              <Link href="#servicios" className="border-2 border-white/30 text-white hover:border-white font-semibold px-5 py-3 sm:px-8 sm:py-4 rounded-2xl transition-all text-xl inline-flex items-center gap-2">Ver Servicios</Link>
             </div>
           </div>
         </div>
@@ -105,7 +105,7 @@ export default function ServiciosPage() {
       </section>
 
       {/* Services list */}
-      <section id="servicios" className="py-24 bg-white">
+      <section id="servicios" className="py-14 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           {services.map((s, i) => {
             const Icon = s.icon
@@ -118,7 +118,7 @@ export default function ServiciosPage() {
                     <img src={s.img} alt={s.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                   </div>
                   {/* Content */}
-                  <div className="p-10 lg:p-12 flex flex-col justify-center">
+                  <div className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center">
                     <div className="flex items-center gap-4 mb-5">
                       <div className="w-14 h-14 bg-[#C6002B]/10 rounded-2xl flex items-center justify-center">
                         <Icon size={26} className="text-[#C6002B]" />
@@ -177,10 +177,10 @@ export default function ServiciosPage() {
       {/* Contact form */}
       <section id="contacto" className="py-24 bg-[#1A1A1A]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div>
               <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mb-6">Hablemos</div>
-              <h2 className="font-['Inter'] font-black tracking-tight text-6xl text-white leading-none uppercase mb-6">
+              <h2 className="font-['Inter'] font-black tracking-tight text-4xl sm:text-5xl lg:text-6xl text-white leading-none uppercase mb-6">
                 Tu Primera<br />Llamada<br /><span className="text-[#C6002B]">Es Gratis.</span>
               </h2>
               <p className="text-xl text-gray-400 leading-relaxed mb-8">Sin presión. Sin compromiso. 30 minutos para ver si somos el equipo correcto para tu marca.</p>

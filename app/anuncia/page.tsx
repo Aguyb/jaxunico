@@ -22,7 +22,7 @@ export default function AnunciaPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-[#1A1A1A] py-24 lg:py-32 overflow-hidden">
+      <section className="relative bg-[#1A1A1A] py-14 sm:py-12 sm:py-16 lg:py-20 overflow-hidden">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=1600&q=80"
             alt="Advertising" className="w-full h-full object-cover opacity-20" />
@@ -31,15 +31,15 @@ export default function AnunciaPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mb-6">Publicidad y Patrocinios</div>
-            <h1 className="font-['Inter'] font-black tracking-tight text-7xl lg:text-[100px] leading-none tracking-wide text-white mb-8 uppercase">
+            <h1 className="font-['Inter'] font-black tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-none tracking-wide text-white mb-8 uppercase">
               Llega a la<br />Comunidad<br />Latina Más<br /><span className="text-[#C6002B]">Activa de JAX.</span>
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed mb-10 max-w-xl">
               Conecta tu marca con +120,000 latinos en Jacksonville a través del show, podcast, redes sociales y eventos en vivo.
             </p>
             <div className="flex gap-4 flex-wrap">
-              <Link href="#contacto" className="btn-primary text-xl px-10 py-5">Solicitar Media Kit <ArrowRight size={22}/></Link>
-              <Link href="#paquetes" className="border-2 border-white/30 text-white hover:border-white font-semibold px-10 py-5 rounded-2xl transition-all text-xl inline-flex items-center gap-2">Ver Paquetes</Link>
+              <Link href="#contacto" className="btn-primary text-xl px-5 py-3 sm:px-8 sm:py-4">Solicitar Media Kit <ArrowRight size={22}/></Link>
+              <Link href="#paquetes" className="border-2 border-white/30 text-white hover:border-white font-semibold px-5 py-3 sm:px-8 sm:py-4 rounded-2xl transition-all text-xl inline-flex items-center gap-2">Ver Paquetes</Link>
             </div>
           </div>
         </div>
@@ -60,9 +60,9 @@ export default function AnunciaPage() {
       </section>
 
       {/* ── SHOWREEL VIDEO ── */}
-      <section className="py-24 bg-white">
+      <section className="py-14 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div>
               <div className="badge mb-6">Nuestro Alcance</div>
               <h2 className="section-heading mb-6">
@@ -124,7 +124,7 @@ export default function AnunciaPage() {
       </section>
 
       {/* Local Packages */}
-      <section id="paquetes" className="py-24 bg-white">
+      <section id="paquetes" className="py-14 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <div className="badge mx-auto mb-6">Mercado Local</div>
@@ -218,16 +218,16 @@ export default function AnunciaPage() {
       <section id="contacto" className="py-24 bg-[#C6002B] relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div>
-              <h2 className="font-['Inter'] font-black tracking-tight text-6xl text-white leading-none mb-6 uppercase">Tu Marca<br />Pertenece<br />Aquí.</h2>
+              <h2 className="font-['Inter'] font-black tracking-tight text-4xl sm:text-5xl lg:text-6xl text-white leading-none mb-6 uppercase">Tu Marca<br />Pertenece<br />Aquí.</h2>
               <p className="text-xl text-white/80 mb-8 leading-relaxed">Conversemos sobre cómo conectar tu marca con la comunidad latina más activa de Jacksonville.</p>
               <div className="flex items-center gap-3 mb-4">
                 <Mail size={20} className="text-white shrink-0" />
                 <span className="text-white/80 text-xl">sponsors@jaxunico.com</span>
               </div>
             </div>
-            <form className="bg-white rounded-3xl p-8 space-y-5" action="https://formspree.io/f/mzdqewjb" method="POST">
+            <form className="bg-white rounded-3xl p-5 sm:p-8 space-y-5" action="https://formspree.io/f/mzdqewjb" method="POST">
               {[
                 ['Nombre y apellido', 'nombre', 'Tu nombre completo'],
                 ['Empresa / Marca', 'empresa', 'Nombre de tu empresa'],

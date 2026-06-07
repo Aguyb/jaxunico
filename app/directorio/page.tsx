@@ -28,7 +28,7 @@ export default async function DirectorioPage() {
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mx-auto mb-6">Directorio Latino</div>
-          <h1 className="font-['Inter'] font-black text-7xl lg:text-8xl text-white leading-none mb-6 uppercase tracking-tight">
+          <h1 className="font-['Inter'] font-black text-4xl sm:text-5xl lg:text-7xl text-white leading-none mb-6 uppercase tracking-tight">
             Encuentra, Apoya<br />y <span className="text-[#C6002B]">Compra Latino</span><br />en Jacksonville.
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-10">El directorio completo de negocios latinos en Jacksonville.</p>
@@ -92,9 +92,9 @@ export default async function DirectorioPage() {
       {/* Register CTA */}
       <section className="py-24 bg-[#C6002B]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <h2 className="font-['Inter'] font-black text-6xl text-white leading-none mb-6 uppercase tracking-tight">Registra tu<br/>Negocio Gratis</h2>
+              <h2 className="font-['Inter'] font-black text-4xl sm:text-5xl lg:text-6xl text-white leading-none mb-6 uppercase tracking-tight">Registra tu<br/>Negocio Gratis</h2>
               <p className="text-xl text-white/80 leading-relaxed mb-6">Llega a +120,000 latinos en Jacksonville. Gratis. Sin complicaciones.</p>
               {['Listing completo en el directorio', 'Feature en redes sociales', 'Mención en newsletter mensual', 'Conexión con la red latina de JAX'].map(item => (
                 <div key={item} className="flex items-center gap-3 mb-3">
@@ -103,7 +103,7 @@ export default async function DirectorioPage() {
                 </div>
               ))}
             </div>
-            <form className="bg-white rounded-3xl p-8 space-y-4" action="https://formspree.io/f/mvznkywq" method="POST">
+            <form className="bg-white rounded-3xl p-5 sm:p-8 space-y-4" action="https://formspree.io/f/mvznkywq" method="POST">
               <h3 className="font-['Inter'] font-black text-2xl text-[#1A1A1A] mb-2">Registrar mi Negocio</h3>
               {['Nombre del negocio', 'Categoría', 'Dirección en Jacksonville', 'Teléfono', 'Sitio Web', 'Email de contacto'].map(f => (
                 <input key={f} type="text" name={f.toLowerCase().replace(/ /g,'_')} placeholder={f}

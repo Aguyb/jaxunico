@@ -20,12 +20,12 @@ export default async function ElShowPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-[#1A1A1A] py-20 lg:py-28 relative overflow-hidden">
+      <section className="bg-[#1A1A1A] py-12 sm:py-16 lg:py-20 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#C6002B] rounded-full blur-3xl opacity-10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <div className="badge mb-6">El Show</div>
-            <h1 className="font-['Inter'] font-black text-7xl sm:text-8xl text-white leading-none tracking-tight uppercase mb-6">
+            <h1 className="font-['Inter'] font-black text-4xl sm:text-6xl lg:text-7xl text-white leading-none tracking-tight uppercase mb-6">
               Conversaciones<br />Reales.<br />
               <span className="text-[#C6002B]">Historias</span><br />que Inspiran.
             </h1>
@@ -33,10 +33,10 @@ export default async function ElShowPage() {
               Cada semana, una conversación auténtica con líderes, emprendedores y creadores latinos de Jacksonville.
             </p>
             <div className="flex gap-4 flex-wrap">
-              <Link href="#episodios" className="btn-primary text-xl px-10 py-5">
+              <Link href="#episodios" className="btn-primary text-xl px-5 py-3 sm:px-8 sm:py-4">
                 <Play size={20} fill="white"/> Ver Episodios
               </Link>
-              <Link href="#aplicar" className="border-2 border-white/20 text-white hover:border-[#C6002B] font-semibold px-10 py-5 rounded-2xl transition-all text-xl inline-flex items-center gap-2">
+              <Link href="#aplicar" className="border-2 border-white/20 text-white hover:border-[#C6002B] font-semibold px-5 py-3 sm:px-8 sm:py-4 rounded-2xl transition-all text-xl inline-flex items-center gap-2">
                 Quiero Ser Invitado <ArrowRight size={20}/>
               </Link>
             </div>
@@ -134,7 +134,7 @@ export default async function ElShowPage() {
       {/* Apply to be Guest */}
       <section id="aplicar" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             <div>
               <div className="badge mb-6">Conviértete en Invitado</div>
               <h2 className="section-heading mb-6">

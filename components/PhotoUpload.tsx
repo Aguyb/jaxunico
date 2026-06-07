@@ -54,9 +54,10 @@ export default function PhotoUpload({
         body: formData,
       })
 
-      const data = await res.json()
+      let data
+      try { data = await res.json() } catch { throw new Error('Server error — check Cloudinary environment variables in Vercel') }
 
-      if (!res.ok) throw new Error(data.error || 'Upload failed')
+      if (!res.ok) throw new Error(data?.error || 'Upload failed')
 
       setPreview(data.url)
       setStatus('success')

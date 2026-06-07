@@ -3,6 +3,17 @@ import { ArrowRight, Clock, Mic, Play } from 'lucide-react'
 import NewsletterForm from '@/components/NewsletterForm'
 import { getAllArticles } from '@/lib/sanity.queries'
 import BlogFilters from '@/components/BlogFilters'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Blog — Jax Unico',
+  description: 'Emprendimiento, marketing y comunidad para los latinos de Jacksonville.',
+  alternates: {
+    types: {
+      'application/rss+xml': 'https://jaxunico.com/blog/feed.xml',
+    },
+  },
+}
 
 const categories = ['Todos', 'Emprendimiento', 'Marketing Digital', 'Historias de Comunidad', 'Eventos', 'Negocios Latinos', 'Producción']
 

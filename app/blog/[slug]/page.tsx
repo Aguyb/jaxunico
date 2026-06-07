@@ -7,7 +7,7 @@ import NewsletterForm from '@/components/NewsletterForm'
 
 export async function generateStaticParams() {
   const articles = await getAllArticles().catch(() => [])
-  return articles.map((a: any) => ({ slug: a.slug?.current || a.slug }))
+  return articles.map((a: any) => ({ slug: a.slug }))
 }
 
 export default async function ArticlePage({ params }: { params: { slug: string } }) {

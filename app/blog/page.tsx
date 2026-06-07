@@ -44,7 +44,7 @@ export default async function BlogPage() {
             <div className="lg:col-span-2">
               {/* Featured */}
               {featured && (
-                <Link href={`/blog/${featured.slug?.current || featured.slug}`} className="card overflow-hidden mb-10 hover:-translate-y-1 transition-all duration-300 block">
+                <Link href={`/blog/${featured.slug}`} className="card overflow-hidden mb-10 hover:-translate-y-1 transition-all duration-300 block">
                   <div className="h-72 overflow-hidden">
                     <img src={featured.coverImage} alt={featured.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                   </div>
@@ -70,7 +70,7 @@ export default async function BlogPage() {
               {/* Grid */}
               <div className="grid sm:grid-cols-2 gap-7">
                 {grid.map((post: any) => (
-                  <Link key={post._id} href={`/blog/${post.slug?.current || post.slug}`} className="card overflow-hidden group hover:-translate-y-2 transition-all duration-300 cursor-pointer block">
+                  <Link key={post._id} href={`/blog/${post.slug}`} className="card overflow-hidden group hover:-translate-y-2 transition-all duration-300 cursor-pointer block">
                     <div className="h-44 overflow-hidden">
                       <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     </div>

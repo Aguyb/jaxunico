@@ -16,7 +16,7 @@ async function getEpisodeBySlug(slug: string) {
 
 export async function generateStaticParams() {
   const episodes = await getAllEpisodes().catch(() => [])
-  return episodes.map((e: any) => ({ slug: e.slug?.current || e.slug }))
+  return episodes.map((e: any) => ({ slug: e.slug }))
 }
 
 export default async function EpisodePage({ params }: { params: { slug: string } }) {

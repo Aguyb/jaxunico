@@ -56,7 +56,7 @@ export default async function ElShowPage() {
             <div className="badge mb-6">Último Episodio</div>
             <div className="grid lg:grid-cols-5 gap-10 items-start">
               <div className="lg:col-span-3">
-                <Link href={`/el-show/${latest.slug?.current}`} className="bg-[#1A1A1A] rounded-3xl overflow-hidden aspect-video flex items-center justify-center relative block group">
+                <Link href={`/el-show/${latest.slug}`} className="bg-[#1A1A1A] rounded-3xl overflow-hidden aspect-video flex items-center justify-center relative block group">
                   {latest.coverImage && (
                     <img src={latest.coverImage} alt={latest.title} className="w-full h-full object-cover opacity-50 group-hover:opacity-60 transition-opacity" />
                   )}
@@ -109,7 +109,7 @@ export default async function ElShowPage() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {episodes.map((ep: any) => (
-              <Link key={ep._id} href={`/el-show/${ep.slug?.current}`} className="card p-5 hover:border-[#C6002B]/30 cursor-pointer group block">
+              <Link key={ep._id} href={`/el-show/${ep.slug}`} className="card p-5 hover:border-[#C6002B]/30 cursor-pointer group block">
                 <div className="bg-[#1A1A1A] rounded-2xl aspect-video flex items-center justify-center mb-4 relative overflow-hidden">
                   {ep.coverImage && <img src={ep.coverImage} alt={ep.title} className="w-full h-full object-cover opacity-60" />}
                   <div className="absolute inset-0 flex items-center justify-center">

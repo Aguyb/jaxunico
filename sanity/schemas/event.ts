@@ -13,6 +13,14 @@ export const eventSchema = defineType({
       validation: Rule => Rule.required(),
     }),
     defineField({
+      name: 'slug',
+      title: 'URL Slug',
+      type: 'slug',
+      options: { source: 'title', maxLength: 96 },
+      validation: Rule => Rule.required(),
+      description: 'Auto-generated from title.',
+    }),
+    defineField({
       name: 'eventType',
       title: 'Event Type',
       type: 'string',

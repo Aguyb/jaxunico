@@ -19,8 +19,9 @@ export async function generateStaticParams() {
   return episodes.map((e: any) => ({ slug: e.slug }))
 }
 
-export default async function EpisodePage({ params }: { params: { slug: string } }) {
-  const episode = await getEpisodeBySlug(params.slug).catch(() => null)
+export default async function EpisodePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const episode = await getEpisodeBySlug(slug).catch(() => null)
   if (!episode) notFound()
 
   return (

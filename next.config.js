@@ -8,7 +8,11 @@ const nextConfig = {
     ],
   },
   staticPageGenerationTimeout: 180,
-  transpilePackages: ['sanity', '@sanity/vision', 'next-sanity'],
+  transpilePackages: ['sanity', 'next-sanity'],
+  webpack: (config) => {
+    config.resolve.fallback = { ...config.resolve.fallback, fs: false }
+    return config
+  },
 }
 
 module.exports = nextConfig

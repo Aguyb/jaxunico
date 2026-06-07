@@ -11,7 +11,6 @@
   "dependencies": {
     "@portabletext/react": "^6.2.0",
     "@sanity/image-url": "^2.1.1",
-    "@sanity/vision": "5.30.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.383.0",
     "next": "15.3.3",
@@ -19,7 +18,7 @@
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "sanity": "5.30.0",
-    "styled-components": "^6.4.2"
+    "styled-components": "6.1.15"
   },
   "devDependencies": {
     "@types/node": "^20",

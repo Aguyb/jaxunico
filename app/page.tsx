@@ -1,9 +1,13 @@
-'use client'
 import Link from 'next/link'
 import { Play, ArrowRight, Mic, Video, CheckCircle, TrendingUp, Eye, Users, ChevronRight } from 'lucide-react'
 import NewsletterForm from '@/components/NewsletterForm'
+import { getLatestEpisode, getNextEvent } from '@/lib/sanity.queries'
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [latestEpisode, nextEvent] = await Promise.all([
+    getLatestEpisode().catch(() => null),
+    getNextEvent().catch(() => null),
+  ])
   return (
     <>
       {/* ── HERO ── */}

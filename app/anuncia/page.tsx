@@ -227,15 +227,24 @@ export default function AnunciaPage() {
                 <span className="text-white/80 text-xl">sponsors@jaxunico.com</span>
               </div>
             </div>
-            <form className="bg-white rounded-3xl p-8 space-y-5" onSubmit={e => e.preventDefault()}>
-              {['Nombre y apellido','Empresa / Marca','Email de contacto','Teléfono','Industria / Categoría'].map(f => (
-                <input key={f} type="text" placeholder={f} className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-medium focus:outline-none focus:border-[#C6002B]" />
+            <form className="bg-white rounded-3xl p-8 space-y-5" action="https://formspree.io/f/xpwzgvob" method="POST">
+              {[
+                ['Nombre y apellido', 'nombre', 'Tu nombre completo'],
+                ['Empresa / Marca', 'empresa', 'Nombre de tu empresa'],
+                ['Email de contacto', 'email', 'tu@email.com'],
+                ['Teléfono', 'telefono', '(904) 000-0000'],
+                ['Industria / Categoría', 'industria', 'Ej: Restaurantes, Salud, Legal...'],
+              ].map(([label, name, placeholder]) => (
+                <input key={name} type={name === 'email' ? 'email' : 'text'} name={name}
+                  placeholder={placeholder} required={['nombre','email'].includes(name)}
+                  className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-medium focus:outline-none focus:border-[#C6002B]" />
               ))}
-              <select className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-medium text-gray-600 focus:outline-none focus:border-[#C6002B]">
+              <select name="paquete" className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-medium text-gray-600 focus:outline-none focus:border-[#C6002B]">
                 <option value="">Paquete de interés</option>
-                {[...localPlans.map(p => p.name), ...nationalPlans.map(p => p.name)].map(n => <option key={n}>{n}</option>)}
+                {[...localPlans.map(p => p.name), ...nationalPlans.map(p => p.name)].map(n => <option key={n} value={n}>{n}</option>)}
               </select>
-              <textarea rows={3} placeholder="Mensaje o presupuesto estimado (opcional)" className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-medium focus:outline-none focus:border-[#C6002B] resize-none" />
+              <textarea name="mensaje" rows={3} placeholder="Mensaje o presupuesto estimado (opcional)"
+                className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-medium focus:outline-none focus:border-[#C6002B] resize-none" />
               <button type="submit" className="btn-primary w-full justify-center text-xl py-5">
                 Solicitar Media Kit <ArrowRight size={22}/>
               </button>

@@ -1,6 +1,9 @@
 'use client'
 import Link from 'next/link'
 import { Video, Mic, Play, Zap, Calendar, Star, ArrowRight, CheckCircle } from 'lucide-react'
+import ContactForm from '@/components/ContactForm'
+
+const SERVICIOS_ENDPOINT = 'https://formspree.io/f/xpwzgvob'
 
 const services = [
   {
@@ -190,28 +193,21 @@ export default function ServiciosPage() {
                 ))}
               </div>
             </div>
-            <form className="space-y-5" onSubmit={e => e.preventDefault()}>
-              {[['Nombre completo','text','Tu nombre'],['Negocio / Marca','text','Tu empresa'],['Email','email','tu@email.com'],['Teléfono','tel','(904) 000-0000']].map(([label,type,ph]) => (
-                <div key={label}>
-                  <label className="block text-sm font-bold text-gray-400 mb-2 uppercase tracking-widest">{label}</label>
-                  <input type={type} placeholder={ph} className="w-full bg-white/10 border border-white/20 rounded-2xl px-5 py-4 text-white text-lg placeholder-gray-500 focus:outline-none focus:border-[#C6002B]" />
-                </div>
-              ))}
-              <div>
-                <label className="block text-sm font-bold text-gray-400 mb-2 uppercase tracking-widest">Servicio de Interés</label>
-                <select className="w-full bg-white/10 border border-white/20 rounded-2xl px-5 py-4 text-white text-lg focus:outline-none focus:border-[#C6002B]">
-                  <option value="" className="bg-[#1A1A1A]">Selecciona un servicio</option>
-                  {services.map(s => <option key={s.title} value={s.title} className="bg-[#1A1A1A]">{s.num} — {s.title}</option>)}
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-bold text-gray-400 mb-2 uppercase tracking-widest">Mensaje</label>
-                <textarea rows={3} placeholder="Cuéntanos sobre tu proyecto..." className="w-full bg-white/10 border border-white/20 rounded-2xl px-5 py-4 text-white text-lg placeholder-gray-500 focus:outline-none focus:border-[#C6002B] resize-none" />
-              </div>
-              <button type="submit" className="btn-primary w-full justify-center text-xl py-5">
-                Solicitar mi Propuesta <ArrowRight size={22}/>
-              </button>
-            </form>
+            <ContactForm
+                endpoint={SERVICIOS_ENDPOINT}
+                dark={true}
+                fields={[
+                  { label: 'Nombre completo', name: 'nombre', type: 'text', placeholder: 'Tu nombre', required: true },
+                  { label: 'Negocio / Marca', name: 'negocio', type: 'text', placeholder: 'Tu empresa', required: true },
+                  { label: 'Email', name: 'email', type: 'email', placeholder: 'tu@email.com', required: true },
+                  { label: 'Teléfono', name: 'telefono', type: 'tel', placeholder: '(904) 000-0000' },
+                ]}
+                selectField={{ label: 'Servicio de Interés', name: 'servicio', options: services.map(s => `${s.num} — ${s.title}`) }}
+                textareaField={{ label: 'Mensaje', name: 'mensaje', placeholder: 'Cuéntanos sobre tu proyecto...' }}
+                submitLabel="Solicitar mi Propuesta"
+                successTitle="¡Propuesta en Camino!"
+                successMessage="Recibimos tu consulta. Te enviamos una propuesta personalizada en las próximas 24 horas."
+              />
           </div>
         </div>
       </section>

@@ -67,24 +67,25 @@ export default function EventosPage() {
               <div className="badge mb-4">Únete a Nuestro Evento Anual</div>
               <h3 className="font-['Inter'] font-black tracking-tight text-4xl text-[#1A1A1A] mb-2">Regístrate y Mantente Informado</h3>
               <p className="text-lg text-gray-500 mb-8">Completa el formulario y serás el primero en saber la fecha, ubicación y cómo participar — como asistente, expositor o speaker.</p>
-              <form className="space-y-5" onSubmit={e => e.preventDefault()}>
+              <form className="space-y-5" action="https://formspree.io/f/xpwzgvob" method="POST">
                 {[
-                  ['Nombre completo', 'text', 'Tu nombre'],
-                  ['Empresa / Negocio', 'text', 'Nombre de tu empresa'],
-                  ['Email', 'email', 'tu@email.com'],
-                  ['Teléfono', 'tel', '(904) 000-0000'],
-                  ['Ciudad / Zona de Jacksonville', 'text', 'Riverside, Southside, etc.'],
-                ].map(([label, type, ph]) => (
-                  <div key={label}>
+                  ['Nombre completo', 'nombre', 'text', 'Tu nombre'],
+                  ['Empresa / Negocio', 'empresa', 'text', 'Nombre de tu empresa'],
+                  ['Email', 'email', 'email', 'tu@email.com'],
+                  ['Teléfono', 'telefono', 'tel', '(904) 000-0000'],
+                  ['Ciudad / Zona de Jacksonville', 'zona', 'text', 'Riverside, Southside, etc.'],
+                ].map(([label, name, type, ph]) => (
+                  <div key={name}>
                     <label className="block text-sm font-bold text-gray-500 mb-2 uppercase tracking-widest">{label}</label>
-                    <input type={type} placeholder={ph} className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-medium focus:outline-none focus:border-[#C6002B]" />
+                    <input type={type} name={name} placeholder={ph} required={['nombre','email'].includes(name)}
+                      className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-medium focus:outline-none focus:border-[#C6002B]" />
                   </div>
                 ))}
                 <div>
                   <label className="block text-sm font-bold text-gray-500 mb-2 uppercase tracking-widest">Industria / Expertise</label>
-                  <select className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-medium focus:outline-none focus:border-[#C6002B] text-gray-600">
+                  <select name="industria" className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-medium focus:outline-none focus:border-[#C6002B] text-gray-600">
                     <option value="">¿En qué área eres experto?</option>
-                    {['Negocios y Emprendimiento', 'Salud y Bienestar', 'Tecnología', 'Finanzas e Inversiones', 'Bienes Raíces', 'Marketing y Medios', 'Arte y Entretenimiento', 'Educación', 'Legal', 'Construcción', 'Restaurantes y Gastronomía', 'Otro'].map(o => <option key={o}>{o}</option>)}
+                    {['Negocios y Emprendimiento', 'Salud y Bienestar', 'Tecnología', 'Finanzas e Inversiones', 'Bienes Raíces', 'Marketing y Medios', 'Arte y Entretenimiento', 'Educación', 'Legal', 'Construcción', 'Restaurantes y Gastronomía', 'Otro'].map(o => <option key={o} value={o}>{o}</option>)}
                   </select>
                 </div>
                 <div>
@@ -92,7 +93,7 @@ export default function EventosPage() {
                   <div className="grid grid-cols-2 gap-3">
                     {['Asistente', 'Expositor', 'Speaker / Panelista', 'Patrocinador'].map(opt => (
                       <label key={opt} className="flex items-center gap-3 p-4 border-2 border-gray-200 rounded-2xl cursor-pointer hover:border-[#C6002B] transition-colors">
-                        <input type="checkbox" className="w-5 h-5 accent-[#C6002B]" />
+                        <input type="checkbox" name="participacion" value={opt} className="w-5 h-5 accent-[#C6002B]" />
                         <span className="text-base font-semibold text-gray-700">{opt}</span>
                       </label>
                     ))}
@@ -100,7 +101,7 @@ export default function EventosPage() {
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-gray-500 mb-2 uppercase tracking-widest">Mensaje o pregunta (opcional)</label>
-                  <textarea rows={3} className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-medium focus:outline-none focus:border-[#C6002B] resize-none" />
+                  <textarea name="mensaje" rows={3} className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-medium focus:outline-none focus:border-[#C6002B] resize-none" />
                 </div>
                 <button type="submit" className="btn-primary w-full justify-center text-xl py-5">
                   Quiero Participar — Notifícame <ArrowRight size={22}/>

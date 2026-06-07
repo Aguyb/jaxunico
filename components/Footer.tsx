@@ -28,10 +28,10 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               {[
-                { icon: Instagram, href: '#', label: 'Instagram' },
-                { icon: Youtube, href: '#', label: 'YouTube' },
-                { icon: Facebook, href: '#', label: 'Facebook' },
-                { icon: Linkedin, href: '#', label: 'LinkedIn' },
+                { icon: Instagram, href: 'https://instagram.com/jaxunico', label: 'Instagram' },
+                { icon: Youtube, href: 'https://youtube.com/@jaxunico', label: 'YouTube' },
+                { icon: Facebook, href: 'https://facebook.com/jaxunico', label: 'Facebook' },
+                { icon: Linkedin, href: 'https://linkedin.com/company/jaxunico', label: 'LinkedIn' },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -118,8 +118,8 @@ export default function Footer() {
             © 2025 Aguyb Studios · jaxunico.com · Jacksonville, Florida
           </p>
           <div className="flex gap-6">
-            <Link href="#" className="text-xs text-gray-500 hover:text-[#C6002B] transition-colors">Privacidad</Link>
-            <Link href="#" className="text-xs text-gray-500 hover:text-[#C6002B] transition-colors">Términos</Link>
+            <Link href="/privacidad" className="text-xs text-gray-500 hover:text-[#C6002B] transition-colors">Privacidad</Link>
+            <Link href="/terminos" className="text-xs text-gray-500 hover:text-[#C6002B] transition-colors">Términos</Link>
           </div>
         </div>
       </div>

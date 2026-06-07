@@ -227,7 +227,7 @@ export default function AnunciaPage() {
                 <span className="text-white/80 text-xl">sponsors@jaxunico.com</span>
               </div>
             </div>
-            <form className="bg-white rounded-3xl p-8 space-y-5" action="https://formspree.io/f/xpwzgvob" method="POST">
+            <form className="bg-white rounded-3xl p-8 space-y-5" action="https://formspree.io/f/mzdqewjb" method="POST">
               {[
                 ['Nombre y apellido', 'nombre', 'Tu nombre completo'],
                 ['Empresa / Marca', 'empresa', 'Nombre de tu empresa'],

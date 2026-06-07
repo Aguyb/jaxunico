@@ -103,7 +103,7 @@ export default async function DirectorioPage() {
                 </div>
               ))}
             </div>
-            <form className="bg-white rounded-3xl p-8 space-y-4" action="https://formspree.io/f/mvznkodq" method="POST">
+            <form className="bg-white rounded-3xl p-8 space-y-4" action="https://formspree.io/f/mvznkywq" method="POST">
               <h3 className="font-['Inter'] font-black text-2xl text-[#1A1A1A] mb-2">Registrar mi Negocio</h3>
               {['Nombre del negocio', 'Categoría', 'Dirección en Jacksonville', 'Teléfono', 'Sitio Web', 'Email de contacto'].map(f => (
                 <input key={f} type="text" name={f.toLowerCase().replace(/ /g,'_')} placeholder={f}

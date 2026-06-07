@@ -67,7 +67,7 @@ export default function EventosPage() {
               <div className="badge mb-4">Únete a Nuestro Evento Anual</div>
               <h3 className="font-['Inter'] font-black tracking-tight text-4xl text-[#1A1A1A] mb-2">Regístrate y Mantente Informado</h3>
               <p className="text-lg text-gray-500 mb-8">Completa el formulario y serás el primero en saber la fecha, ubicación y cómo participar — como asistente, expositor o speaker.</p>
-              <form className="space-y-5" action="https://formspree.io/f/xpwzgvob" method="POST">
+              <form className="space-y-5" action="https://formspree.io/f/mgobaqna" method="POST">
                 {[
                   ['Nombre completo', 'nombre', 'text', 'Tu nombre'],
                   ['Empresa / Negocio', 'empresa', 'text', 'Nombre de tu empresa'],

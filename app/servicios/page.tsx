@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Video, Mic, Play, Zap, Calendar, Star, ArrowRight, CheckCircle } from 'lucide-react'
 import ContactForm from '@/components/ContactForm'
 
-const SERVICIOS_ENDPOINT = 'https://formspree.io/f/xpwzgvob'
+const SERVICIOS_ENDPOINT = 'https://formspree.io/f/mlgkjvwq'
 
 const services = [
   {

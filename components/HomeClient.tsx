@@ -32,9 +32,9 @@ export default function HomeClient({ latestEpisode, nextEvent, latestArticle }: 
               Jacksonville, Florida
             </div>
             <h1 className="font-['Inter'] font-black text-5xl sm:text-6xl lg:text-[90px] leading-none tracking-tight text-white mb-6 uppercase">
-              {t('Tu Voz.', 'Your Voice.')}<br/>
-              <span className="text-[#C6002B]">{t('Tu Historia.', 'Your Story.')}</span><br/>
-              {t('Tu Plataforma.', 'Your Platform.')}
+              {t('Latin', 'Latin')}<br/>
+              <span className="text-[#C6002B]">Jacksonville</span><br/>
+              {t('Platform.', 'Platform.')}
             </h1>
             {/* Descriptor tags */}
             <div className="flex flex-wrap gap-2 mb-6">

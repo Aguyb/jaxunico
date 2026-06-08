@@ -372,12 +372,7 @@ export default function AdminPage() {
       {/* Header */}
       <div className="bg-[#1A1A1A] px-4 sm:px-8 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-              <path d="M20 15 L20 65 Q20 85 40 85 Q60 85 60 65 L60 55 L80 70 L80 15 Z" fill="url(#ag)"/>
-              <defs><linearGradient id="ag" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#C6002B"/><stop offset="100%" stopColor="#9B0020"/></linearGradient></defs>
-            </svg>
-          </div>
+          <img src="/logo.png" alt="Jax Unico" className="h-8 w-auto object-contain brightness-0 invert"/>
           <div>
             <div className="font-['Inter'] font-black text-white text-base tracking-widest">JAXUNICO</div>
             <div className="text-gray-400 text-xs">Admin Panel</div>

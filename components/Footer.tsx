@@ -15,16 +15,12 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10">
-                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                  <path d="M20 15 L20 65 Q20 85 40 85 Q60 85 60 65 L60 55 L80 70 L80 15 Z" fill="white"/>
-                </svg>
-              </div>
-              <div>
-                <div className="font-heading text-xl tracking-widest leading-none">JAXUNICO</div>
-                <div className="text-[9px] font-mono text-gray-400 tracking-widest uppercase leading-none mt-0.5">La Plataforma Latina</div>
-              </div>
+            <div className="mb-5">
+              <img
+                src="/logo.png"
+                alt="Jax Unico"
+                className="h-14 w-auto object-contain brightness-0 invert"
+              />
             </div>
             <p className="text-sm text-gray-400 leading-relaxed mb-6">
               La única plataforma de medios latina en Jacksonville, Florida. Producida por Aguyb Studios.

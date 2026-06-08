@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import { useLang } from '@/lib/lang'
 import { ArrowRight, CheckCircle, Play, Mail, Package, BarChart3 } from 'lucide-react'
 
 const localPlans = [
@@ -19,6 +20,7 @@ const nationalPlans = [
 const channels = ['Podcast (Spotify)', 'Apple Podcasts', 'YouTube', 'iHeartRadio', 'Amazon Music', 'Instagram Reels', 'TikTok', 'Facebook', 'LinkedIn', 'Newsletter', 'Website', 'Backdrop Estudio', 'Eventos en vivo', 'YouTube Shorts']
 
 export default function AnunciaPage() {
+  const { t } = useLang()
   return (
     <>
       {/* Hero */}

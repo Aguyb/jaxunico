@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import PageHero from '@/components/PageHero'
+import { TranslatedBtn, TranslatedH2, TranslatedP, TranslatedBadge } from '@/components/Translated'
 import { MapPin, ArrowRight, CheckCircle, Star, Phone, Globe } from 'lucide-react'
 import { getAllListings } from '@/lib/sanity.queries'
 import DirectorySearch from '@/components/DirectorySearch'
@@ -21,20 +23,24 @@ export default async function DirectorioPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-[#1A1A1A] py-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1600&q=80" alt="Latino business" className="w-full h-full object-cover opacity-20"/>
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A1A]/80 to-[#1A1A1A]"/>
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mx-auto mb-6">Directorio Latino</div>
-          <h1 className="font-['Inter'] font-black text-4xl sm:text-5xl lg:text-7xl text-white leading-none mb-6 uppercase tracking-tight">
-            Encuentra, Apoya<br />y <span className="text-[#C6002B]">Compra Latino</span><br />en Jacksonville.
-          </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-10">El directorio completo de negocios latinos en Jacksonville.</p>
+      <PageHero
+        badge="Directorio Latino"
+        badgeEn="Latino Directory"
+        title="Encuentra, Apoya y"
+        titleEn="Find, Support and"
+        titleRed="Compra Latino en Jacksonville."
+        titleRedEn="Buy Latino in Jacksonville."
+        subtitle="El directorio completo de negocios latinos en Jacksonville. Busca, conecta y apoya a tu comunidad."
+        subtitleEn="The complete directory of Latino businesses in Jacksonville. Search, connect and support your community."
+        imgSrc="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1600&q=80"
+      />
+
+      {/* Search bar */}
+      <div className="bg-[#1A1A1A] pb-10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto">
           <DirectorySearch />
         </div>
-      </section>
+      </div>
 
       {/* Category pills */}
       <section className="py-6 bg-white border-b border-gray-100 sticky top-[68px] z-40">

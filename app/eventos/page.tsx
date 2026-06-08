@@ -1,5 +1,7 @@
 import { getAllEvents } from '@/lib/sanity.queries'
 import Link from 'next/link'
+import PageHero from '@/components/PageHero'
+import { TranslatedBtn, TranslatedH2, TranslatedP, TranslatedBadge } from '@/components/Translated'
 import { Calendar, MapPin, Users, ArrowRight, Mic, Star, CheckCircle, Building2 } from 'lucide-react'
 
 const communityEvents = [
@@ -12,26 +14,23 @@ export default function EventosPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-[#1A1A1A] py-14 sm:py-12 sm:py-16 lg:py-20 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&q=80"
-            alt="Events" className="w-full h-full object-cover opacity-25" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A] via-[#1A1A1A]/85 to-transparent" />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mb-6">Eventos</div>
-            <h1 className="font-['Inter'] font-black tracking-tight text-4xl sm:text-5xl lg:text-7xl text-white leading-none mb-8 uppercase">
-              Experiencias<br />que <span className="text-[#C6002B]">Conectan</span><br />Nuestra<br />Comunidad.
-            </h1>
-            <p className="text-xl text-gray-300 mb-10 leading-relaxed">Networking, summits, festivales y más — el calendario de la comunidad latina de Jacksonville.</p>
-            <div className="flex gap-4 flex-wrap">
-              <Link href="#anual" className="btn-primary text-xl px-5 py-3 sm:px-8 sm:py-4">Nuestro Evento Anual <ArrowRight size={22}/></Link>
-              <Link href="#comunidad" className="border-2 border-white/30 text-white hover:border-white font-semibold px-5 py-3 sm:px-8 sm:py-4 rounded-2xl transition-all text-xl inline-flex items-center gap-2">Ver Comunidad</Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        badge="Eventos"
+        badgeEn="Events"
+        title="Experiencias que"
+        titleEn="Experiences that"
+        titleRed="Conectan Nuestra Comunidad."
+        titleRedEn="Connect Our Community."
+        subtitle="Networking, summits, festivales y más — el calendario de la comunidad latina de Jacksonville."
+        subtitleEn="Networking, summits, festivals and more — the Jacksonville Latino community calendar."
+        cta="Nuestro Evento Anual"
+        ctaEn="Our Annual Event"
+        ctaHref="#anual"
+        cta2="Ver Comunidad"
+        cta2En="See Community"
+        cta2Href="#comunidad"
+        imgSrc="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&q=80"
+      />
 
       {/* ── ANNUAL EVENT ── */}
       <section id="anual" className="py-14 sm:py-20 bg-white">

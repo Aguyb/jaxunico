@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import { useLang } from '@/lib/lang'
 import { Video, Mic, Play, Zap, Calendar, Star, ArrowRight, CheckCircle } from 'lucide-react'
 import ContactForm from '@/components/ContactForm'
 
@@ -59,6 +60,7 @@ const steps = [
 ]
 
 export default function ServiciosPage() {
+  const { t } = useLang()
   return (
     <>
       {/* Hero */}

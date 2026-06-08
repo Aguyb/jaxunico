@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import PageHero from '@/components/PageHero'
+import { TranslatedBtn, TranslatedH2, TranslatedP, TranslatedBadge } from '@/components/Translated'
 import { Play, Mic, ArrowRight, CheckCircle, Clock } from 'lucide-react'
 import { getAllEpisodes } from '@/lib/sanity.queries'
 import GuestFormWrapper from '@/components/GuestFormWrapper'
@@ -20,34 +22,22 @@ export default async function ElShowPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-[#1A1A1A] py-12 sm:py-16 lg:py-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-[#C6002B] rounded-full blur-3xl opacity-10" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <div className="badge mb-6">El Show</div>
-            <h1 className="font-['Inter'] font-black text-4xl sm:text-6xl lg:text-7xl text-white leading-none tracking-tight uppercase mb-6">
-              Conversaciones<br />Reales.<br />
-              <span className="text-[#C6002B]">Historias</span><br />que Inspiran.
-            </h1>
-            <p className="text-gray-400 text-xl mb-8 leading-relaxed">
-              Cada semana, una conversación auténtica con líderes, emprendedores y creadores latinos de Jacksonville.
-            </p>
-            <div className="flex gap-4 flex-wrap">
-              <Link href="#episodios" className="btn-primary text-xl px-5 py-3 sm:px-8 sm:py-4">
-                <Play size={20} fill="white"/> Ver Episodios
-              </Link>
-              <Link href="#aplicar" className="border-2 border-white/20 text-white hover:border-[#C6002B] font-semibold px-5 py-3 sm:px-8 sm:py-4 rounded-2xl transition-all text-xl inline-flex items-center gap-2">
-                Quiero Ser Invitado <ArrowRight size={20}/>
-              </Link>
-            </div>
-            <div className="flex gap-3 mt-8 flex-wrap">
-              {['Spotify', 'Apple Podcasts', 'YouTube', 'iHeartRadio', 'Amazon Music'].map(p => (
-                <span key={p} className="text-sm bg-white/10 text-gray-300 font-semibold px-3 py-2 rounded-xl">{p}</span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        badge="El Show"
+        badgeEn="The Show"
+        title="Conversaciones Reales."
+        titleEn="Real Conversations."
+        titleRed="Historias que Inspiran."
+        titleRedEn="Stories that Inspire."
+        subtitle="Cada semana, una conversación auténtica con líderes, emprendedores y creadores latinos de Jacksonville."
+        subtitleEn="Every week, an authentic conversation with Latino leaders, entrepreneurs and creators from Jacksonville."
+        cta="Ver Episodios"
+        ctaEn="See Episodes"
+        ctaHref="#episodios"
+        cta2="Quiero Ser Invitado"
+        cta2En="I Want to Be a Guest"
+        cta2Href="#aplicar"
+      />
 
       {/* Latest Episode */}
       {latest && (

@@ -142,13 +142,15 @@ export default function HomeClient({ latestEpisode, nextEvent, latestArticle }: 
       {/* LO QUE HACEMOS — Latest Episode + Latest Article */}
       <section className="py-14 sm:py-20 bg-[#F7F7F7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-14">
-            <div className="badge mx-auto mb-5">{t('Último Episodio', 'Latest Episode')}</div>
-            <h2 className="section-heading mb-4 text-[#1A1A1A]">
-              {t('Conversación', 'The Most Recent')}<br/>
-              <span className="text-[#1A1A1A]">{t('Más Reciente.', 'Conversation.')}</span>
-            </h2>
-            <p className="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 sm:mb-10 gap-4">
+            <div>
+              <div className="badge mb-3">{t('El Show', 'The Show')}</div>
+              <h2 className="font-['Inter'] font-black text-3xl sm:text-4xl text-[#1A1A1A] leading-tight tracking-tight">
+                {t('Conversación', 'Most Recent')}<br/>
+                <span className="text-[#C6002B]">{t('Más Reciente', 'Conversation')}</span>
+              </h2>
+            </div>
+            <p className="text-sm sm:text-base text-gray-400 max-w-xs leading-relaxed sm:text-right">
               {t(
                 'Una conversación que te educa sobre las oportunidades de la comunidad y tu negocio.',
                 'A conversation that educates you about community opportunities and your business.'

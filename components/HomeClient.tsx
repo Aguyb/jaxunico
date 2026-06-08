@@ -1,19 +1,19 @@
 'use client'
 import Link from 'next/link'
-import { Play, ArrowRight, Mic, Video, CheckCircle, TrendingUp, Eye, Users, ChevronRight } from 'lucide-react'
+import { Play, ArrowRight, Mic, Video, CheckCircle, TrendingUp, Eye, Users, ChevronRight, Clock, Megaphone, BarChart2, Globe } from 'lucide-react'
 import NewsletterForm from '@/components/NewsletterForm'
 import { useLang } from '@/lib/lang'
 
-export default function HomeClient({ latestEpisode, nextEvent }: { latestEpisode: any, nextEvent: any }) {
+export default function HomeClient({ latestEpisode, nextEvent, latestArticle }: { latestEpisode: any, nextEvent: any, latestArticle?: any }) {
   const { t } = useLang()
 
   const services = [
-    { icon: Video, title: t('Video Profesional', 'Professional Video'), price: t('desde $800/mes', 'from $800/mo'), desc: t('Producción de contenido mensual para redes sociales.', 'Monthly video content production for social media.') },
-    { icon: Mic, title: t('Podcast Completo', 'Full Podcast'), price: t('desde $1,500/mes', 'from $1,500/mo'), desc: t('Grabación, edición, distribución y clips.', 'Recording, editing, distribution and clips.') },
-    { icon: Play, title: t('Comerciales', 'Commercials'), price: t('desde $1,500', 'from $1,500'), desc: t('Producción de comerciales para TV y redes digitales.', 'Commercial production for TV and digital networks.') },
-    { icon: TrendingUp, title: t('Redes Sociales', 'Social Media'), price: t('desde $600/mes', 'from $600/mo'), desc: t('Reels, TikToks y Shorts — 10 a 20 piezas por mes.', 'Reels, TikToks and Shorts — 10 to 20 pieces per month.') },
-    { icon: Users, title: t('Cobertura de Eventos', 'Event Coverage'), price: t('desde $1,000', 'from $1,000'), desc: t('Multi-cámara, highlight reel, clips para redes.', 'Multi-camera, highlight reel, social clips.') },
-    { icon: Eye, title: t('Paquete Completo', 'Full Package'), price: t('desde $3,000/mes', 'from $3,000/mo'), desc: t('Podcast + video + redes + email — todo incluido.', 'Podcast + video + social + email — all included.'), featured: true },
+    { icon: Video, title: t('Video Profesional', 'Professional Video'), desc: t('Producción de contenido mensual para redes sociales.', 'Monthly video content for social media.') },
+    { icon: Mic, title: t('Podcast Completo', 'Full Podcast'), desc: t('Grabación, edición, distribución y clips.', 'Recording, editing, distribution and clips.') },
+    { icon: Play, title: t('Comerciales', 'Commercials'), desc: t('Producción de comerciales para TV y redes digitales.', 'Commercial production for TV and digital.') },
+    { icon: TrendingUp, title: t('Redes Sociales', 'Social Media'), desc: t('Reels, TikToks y Shorts — 10 a 20 piezas por mes.', '10 to 20 Reels, TikToks and Shorts per month.') },
+    { icon: Users, title: t('Cobertura de Eventos', 'Event Coverage'), desc: t('Multi-cámara, highlight reel, clips para redes.', 'Multi-camera, highlight reel, social clips.') },
+    { icon: Eye, title: t('Paquete Completo', 'Full Package'), desc: t('Podcast + video + redes + email — todo incluido.', 'Podcast + video + social + email — all included.'), featured: true },
   ]
 
   return (
@@ -58,7 +58,6 @@ export default function HomeClient({ latestEpisode, nextEvent }: { latestEpisode
             </div>
           </div>
         </div>
-        {/* Floating badge — hidden on small mobile */}
         <div className="absolute bottom-8 right-6 hidden sm:block float-y">
           <div className="bg-white rounded-2xl p-4 shadow-2xl">
             <div className="flex items-center gap-3">
@@ -70,25 +69,6 @@ export default function HomeClient({ latestEpisode, nextEvent }: { latestEpisode
                 <div className="text-gray-400 text-xs">{t('En Vivo Ahora', 'Live Now')}</div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* STATS BAR */}
-      <section className="bg-[#C6002B]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
-            {[
-              ['+120K', t('Latinos en Jacksonville', 'Latinos in Jacksonville')],
-              ['+10', t('Plataformas', 'Platforms')],
-              ['4', t('Pilares', 'Pillars')],
-              ['1', t('Plataforma Para Ti', 'Platform For You')],
-            ].map(([v, l]) => (
-              <div key={l} className="text-center">
-                <div className="font-['Inter'] font-black text-3xl sm:text-4xl lg:text-5xl text-white">{v}</div>
-                <div className="text-xs font-bold text-white/70 uppercase tracking-widest mt-1">{l}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -145,39 +125,99 @@ export default function HomeClient({ latestEpisode, nextEvent }: { latestEpisode
         </div>
       </section>
 
-      {/* WHAT WE DO */}
+      {/* LO QUE HACEMOS — Latest Episode + Latest Article */}
       <section className="py-14 sm:py-20 bg-[#F7F7F7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14">
             <div className="badge mx-auto mb-5">{t('Lo Que Hacemos', 'What We Do')}</div>
-            <h2 className="section-heading mb-4">{t('Contenido que', 'Content that')}<br/><span className="text-[#C6002B]">{t('Conecta', 'Connects')}</span> {t('y Vende', 'and Sells')}</h2>
+            <h2 className="section-heading mb-4">
+              {t('Contenido que', 'Content that')} <span className="text-[#C6002B]">{t('Conecta', 'Connects')}</span> {t('y Vende', 'and Sells')}
+            </h2>
             <p className="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto">
               {t('Show, podcast y publicidad — el ecosistema completo para tu marca.', 'Show, podcast and advertising — the complete ecosystem for your brand.')}
             </p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { img: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80', icon: <Video size={22}/>, title: t('El Show', 'The Show'), desc: t('Producción de video podcast en estudio profesional.', 'Video podcast production in professional studio.'), href: '/el-show', cta: t('Ver El Show', 'Watch The Show') },
-              { img: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&q=80', icon: <Mic size={22}/>, title: t('Podcast Latino', 'Latino Podcast'), desc: t('Distribuido en Spotify, Apple, YouTube, iHeart y más.', 'Distributed on Spotify, Apple, YouTube, iHeart and more.'), href: '/el-show', cta: t('Escuchar', 'Listen') },
-              { img: 'https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&q=80', icon: <TrendingUp size={22}/>, title: t('Publicidad', 'Advertising'), desc: t('Llega a +120,000 latinos en Jacksonville.', 'Reach +120,000 Latinos in Jacksonville.'), href: '/anuncia', cta: t('Anunciar', 'Advertise') },
-            ].map(item => (
-              <div key={item.title} className="card overflow-hidden group hover:-translate-y-2 transition-all duration-300">
-                <div className="h-48 sm:h-56 relative overflow-hidden">
-                  <img src={item.img} alt={item.title} className="img-cover group-hover:scale-105 transition-transform duration-500"/>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"/>
-                  <div className="absolute bottom-4 left-4 w-10 h-10 bg-[#C6002B] rounded-xl flex items-center justify-center text-white">
-                    {item.icon}
+
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Latest Episode */}
+            <div className="card overflow-hidden group">
+              <div className="bg-[#1A1A1A] aspect-video relative overflow-hidden">
+                {latestEpisode?.coverImage && (
+                  <img src={latestEpisode.coverImage} alt={latestEpisode.title} className="img-cover opacity-60"/>
+                )}
+                {!latestEpisode?.coverImage && (
+                  <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80" alt="Episode" className="img-cover opacity-40"/>
+                )}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="relative">
+                    <div className="absolute inset-0 rounded-full bg-[#C6002B] animate-ping opacity-30"/>
+                    <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#C6002B] rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform relative z-10">
+                      <Play size={22} className="text-white ml-1" fill="white"/>
+                    </div>
                   </div>
                 </div>
-                <div className="p-5 sm:p-7">
-                  <h3 className="font-['Inter'] font-black text-2xl tracking-tight text-[#1A1A1A] mb-2">{item.title}</h3>
-                  <p className="text-gray-500 text-base leading-relaxed mb-4">{item.desc}</p>
-                  <Link href={item.href} className="text-[#C6002B] font-bold text-base flex items-center gap-2 hover:gap-3 transition-all">
-                    {item.cta} <ChevronRight size={18}/>
+                <div className="absolute top-4 left-4">
+                  <span className="badge !bg-[#C6002B] !text-white text-xs">{t('Último Episodio', 'Latest Episode')}</span>
+                </div>
+                {latestEpisode && (
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="text-xs font-bold text-white/60 mb-1 uppercase tracking-widest">
+                      EP. {String(latestEpisode.episodeNumber || 1).padStart(3,'0')} · {latestEpisode.duration || '45 min'}
+                    </div>
+                    <div className="font-['Inter'] font-black text-lg text-white leading-tight">{latestEpisode.title}</div>
+                  </div>
+                )}
+                {!latestEpisode && (
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="font-['Inter'] font-black text-lg text-white">Tu Historia Merece Ser Escuchada</div>
+                  </div>
+                )}
+              </div>
+              <div className="p-5 sm:p-6 flex items-center justify-between">
+                <div>
+                  <div className="font-bold text-base text-[#1A1A1A]">{t('El Show de Jax Unico', 'The Jax Unico Show')}</div>
+                  <div className="text-sm text-gray-400 flex items-center gap-1 mt-0.5">
+                    <Mic size={12}/> {t('Podcast + Video', 'Podcast + Video')}
+                  </div>
+                </div>
+                <Link href={latestEpisode?.slug ? `/el-show/${latestEpisode.slug}` : '/el-show'}
+                  className="btn-primary !text-sm !py-2.5 !px-5">
+                  {t('Ver', 'Watch')} <ArrowRight size={15}/>
+                </Link>
+              </div>
+            </div>
+
+            {/* Latest Article */}
+            <div className="card overflow-hidden group">
+              <div className="h-48 sm:h-56 relative overflow-hidden bg-gray-100">
+                {latestArticle?.coverImage
+                  ? <img src={latestArticle.coverImage} alt={latestArticle.title} className="img-cover group-hover:scale-105 transition-transform duration-500"/>
+                  : <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80" alt="Blog" className="img-cover group-hover:scale-105 transition-transform duration-500"/>
+                }
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"/>
+                <div className="absolute top-4 left-4">
+                  <span className="badge !bg-white !text-[#C6002B] text-xs">{t('Último Artículo', 'Latest Article')}</span>
+                </div>
+              </div>
+              <div className="p-5 sm:p-6">
+                <div className="badge mb-3 text-xs">{latestArticle?.category || 'Emprendimiento'}</div>
+                <h3 className="font-['Inter'] font-black text-xl text-[#1A1A1A] mb-2 leading-tight line-clamp-2">
+                  {latestArticle?.title || t('La Fuerza que Crece: Cómo la Comunidad Latina Transforma Jacksonville', 'The Growing Force: How the Latino Community Transforms Jacksonville')}
+                </h3>
+                <p className="text-sm text-gray-500 mb-4 line-clamp-2 leading-relaxed">
+                  {latestArticle?.excerpt || t('Con más de 120,000 latinos, la comunidad latina de Jacksonville está transformando la economía de la ciudad.', 'With over 120,000 Latinos, Jacksonville\'s Latino community is transforming the city\'s economy.')}
+                </p>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1.5 text-xs text-gray-400">
+                    <Clock size={12}/> {latestArticle?.readTime || '2 min'}
+                  </div>
+                  <Link href={latestArticle?.slug ? `/blog/${latestArticle.slug}` : '/blog'}
+                    className="text-[#C6002B] font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                    {t('Leer', 'Read')} <ArrowRight size={14}/>
                   </Link>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
@@ -258,21 +298,23 @@ export default function HomeClient({ latestEpisode, nextEvent }: { latestEpisode
                 ))}
               </div>
               <Link href="/el-show#aplicar" className="btn-primary">
-                {t('Aplica Ahora — Es Gratis', 'Apply Now — It\'s Free')} <ArrowRight size={18}/>
+                {t('Aplica Ahora — Es Gratis', "Apply Now — It's Free")} <ArrowRight size={18}/>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SERVICES PREVIEW */}
+      {/* SERVICES PREVIEW — Producción de Clase Mundial */}
       <section className="py-14 sm:py-20 bg-[#F7F7F7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14">
             <div className="badge mx-auto mb-5">Aguyb Studios</div>
-            <h2 className="section-heading mb-4">{t('Producción de', 'Production of')}<br/><span className="text-[#C6002B]">{t('Clase Mundial', 'World Class')}</span></h2>
+            <h2 className="section-heading mb-4">
+              {t('Producción de', 'Production of')} <span className="text-[#C6002B]">{t('Clase Mundial', 'World Class')}</span>
+            </h2>
             <p className="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto">
-              {t('Al alcance de tu negocio. Sin precios ocultos.', 'Within reach of your business. No hidden prices.')}
+              {t('Al alcance de tu negocio. Resultados medibles.', 'Within reach of your business. Measurable results.')}
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -284,11 +326,10 @@ export default function HomeClient({ latestEpisode, nextEvent }: { latestEpisode
                   <div className="w-11 h-11 bg-[#C6002B]/10 rounded-xl flex items-center justify-center mb-4">
                     <Icon size={20} className="text-[#C6002B]"/>
                   </div>
-                  <h3 className="font-['Inter'] font-black text-xl tracking-tight text-[#1A1A1A] mb-1">{s.title}</h3>
-                  <div className="text-[#C9A84C] font-bold text-sm mb-3">{s.price}</div>
+                  <h3 className="font-['Inter'] font-black text-xl tracking-tight text-[#1A1A1A] mb-2">{s.title}</h3>
                   <p className="text-sm text-gray-500 leading-relaxed mb-4">{s.desc}</p>
                   <Link href="/servicios" className="text-sm font-bold text-[#C6002B] flex items-center gap-1 hover:gap-2 transition-all">
-                    {t('Ver detalles', 'See details')} <ChevronRight size={14}/>
+                    {t('Solicitar Información', 'Request Information')} <ChevronRight size={14}/>
                   </Link>
                 </div>
               )
@@ -314,29 +355,69 @@ export default function HomeClient({ latestEpisode, nextEvent }: { latestEpisode
         </div>
       </section>
 
-      {/* MANIFESTO */}
-      <section className="py-16 sm:py-24 bg-[#1A1A1A] text-center relative overflow-hidden">
+      {/* ADVERTISE CTA — replaces manifesto */}
+      <section className="py-16 sm:py-24 bg-[#1A1A1A] relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#C6002B] rounded-full blur-3xl"/>
         </div>
-        <div className="relative max-w-3xl mx-auto px-4">
-          <p className="font-['Inter'] font-black text-3xl sm:text-4xl lg:text-5xl text-white mb-4 tracking-tight uppercase">
-            {t('TU HISTORIA MERECE SER ESCUCHADA.', 'YOUR STORY DESERVES TO BE HEARD.')}
-          </p>
-          <div className="w-24 h-1 bg-[#C9A84C] mx-auto my-6 rounded-full"/>
-          <p className="font-['Inter'] font-black text-3xl sm:text-4xl lg:text-5xl text-white mb-4 tracking-tight uppercase">
-            {t('TU NEGOCIO MERECE CRECER.', 'YOUR BUSINESS DESERVES TO GROW.')}
-          </p>
-          <div className="w-24 h-1 bg-[#C9A84C] mx-auto my-6 rounded-full"/>
-          <p className="font-['Inter'] font-black text-3xl sm:text-4xl lg:text-5xl text-[#C6002B] mb-10 tracking-tight uppercase">
-            {t('TU COMUNIDAD TE ESTÁ ESPERANDO.', 'YOUR COMMUNITY IS WAITING FOR YOU.')}
-          </p>
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mx-auto mb-6">
+              {t('Anúnciate con Nosotros', 'Advertise With Us')}
+            </div>
+            <h2 className="font-['Inter'] font-black text-4xl sm:text-5xl lg:text-6xl text-white leading-none tracking-tight mb-4 uppercase">
+              {t('Tu Marca Frente a', 'Your Brand in Front of')}<br/>
+              <span className="text-[#C6002B]">+120,000 {t('Latinos', 'Latinos')}</span><br/>
+              {t('en Jacksonville.', 'in Jacksonville.')}
+            </h2>
+            <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto">
+              {t(
+                'La audiencia más activa, más leal y más creciente de Jacksonville. Conecta tu marca con la comunidad que está transformando la ciudad.',
+                'The most active, most loyal and fastest growing audience in Jacksonville. Connect your brand with the community transforming the city.'
+              )}
+            </p>
+          </div>
+
+          {/* Audience stats */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
+            {[
+              { icon: <Users size={22}/>, stat: '+120,000', label: t('Latinos en Jacksonville', 'Latinos in Jacksonville'), sub: t('14% de la población total', '14% of total population') },
+              { icon: <Globe size={22}/>, stat: '+10', label: t('Plataformas de distribución', 'Distribution platforms'), sub: t('Spotify, YouTube, Apple, iHeart...', 'Spotify, YouTube, Apple, iHeart...') },
+              { icon: <BarChart2 size={22}/>, stat: '25–55', label: t('Años — audiencia core', 'Years old — core audience'), sub: t('Profesionales y emprendedores', 'Professionals and entrepreneurs') },
+              { icon: <Megaphone size={22}/>, stat: '8', label: t('Episodios por mes', 'Episodes per month'), sub: t('Contenido fresco y constante', 'Fresh and consistent content') },
+            ].map(item => (
+              <div key={item.stat} className="bg-white/5 border border-white/10 rounded-2xl p-5 sm:p-6 text-center hover:bg-white/10 hover:border-[#C6002B]/30 transition-all">
+                <div className="w-10 h-10 bg-[#C6002B]/20 rounded-xl flex items-center justify-center text-[#C6002B] mx-auto mb-3">
+                  {item.icon}
+                </div>
+                <div className="font-['Inter'] font-black text-3xl sm:text-4xl text-white mb-1">{item.stat}</div>
+                <div className="font-bold text-sm text-white/80 mb-1">{item.label}</div>
+                <div className="text-xs text-gray-500">{item.sub}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Why advertise */}
+          <div className="grid sm:grid-cols-3 gap-4 mb-12">
+            {[
+              { title: t('Audiencia que Compra', 'An Audience that Buys'), desc: t('El poder adquisitivo latino en Florida supera los $100 mil millones anuales. Tu marca frente a quienes tienen el dinero y las ganas de gastar.', 'Latino purchasing power in Florida exceeds $100 billion annually. Your brand in front of those with the money and willingness to spend.') },
+              { title: t('Confianza de Comunidad', 'Community Trust'), desc: t('El 71% de los latinos prefiere marcas recomendadas por medios de su comunidad. Jax Unico es esa voz de confianza en Jacksonville.', '71% of Latinos prefer brands recommended by community media. Jax Unico is that trusted voice in Jacksonville.') },
+              { title: t('ROI Comprobado', 'Proven ROI'), desc: t('Los anuncios en podcast tienen un ROI promedio de 14:1. Integración orgánica en el show que no se siente publicidad — se siente recomendación.', 'Podcast ads have an average ROI of 14:1. Organic show integration that doesn\'t feel like advertising — it feels like a recommendation.') },
+            ].map(item => (
+              <div key={item.title} className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[#C6002B]/30 transition-all">
+                <div className="w-2 h-8 bg-[#C6002B] rounded-full mb-4"/>
+                <h3 className="font-['Inter'] font-black text-lg text-white mb-2">{item.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
           <div className="flex justify-center gap-3 flex-wrap">
-            <Link href="/servicios" className="btn-primary">
-              {t('Comencemos', 'Let\'s Start')} <ArrowRight size={18}/>
+            <Link href="/anuncia" className="btn-primary text-base px-8 py-4">
+              {t('Ver Paquetes de Publicidad', 'See Advertising Packages')} <ArrowRight size={18}/>
             </Link>
-            <Link href="/anuncia" className="border-2 border-white/20 text-white hover:border-white font-semibold px-5 py-3 rounded-2xl transition-all text-base inline-flex items-center gap-2">
-              {t('Anunciar', 'Advertise')} <ArrowRight size={18}/>
+            <Link href="/anuncia#contacto" className="border-2 border-white/20 text-white hover:border-white font-semibold px-8 py-4 rounded-2xl transition-all text-base inline-flex items-center gap-2">
+              {t('Solicitar Media Kit', 'Request Media Kit')} <ArrowRight size={18}/>
             </Link>
           </div>
         </div>

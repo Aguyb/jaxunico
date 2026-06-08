@@ -36,6 +36,20 @@ export default function HomeClient({ latestEpisode, nextEvent, latestArticle }: 
               <span className="text-[#C6002B]">{t('Tu Historia.', 'Your Story.')}</span><br/>
               {t('Tu Plataforma.', 'Your Platform.')}
             </h1>
+            {/* Descriptor tags */}
+            <div className="flex flex-wrap gap-2 mb-6">
+              {[
+                t('Latino', 'Latino'),
+                t('Negocios', 'Business'),
+                t('Comunidad', 'Community'),
+                t('Plataforma', 'Platform'),
+                'Jacksonville',
+              ].map(tag => (
+                <span key={tag} className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-white/20 text-white/60">
+                  {tag}
+                </span>
+              ))}
+            </div>
             <p className="text-base sm:text-lg text-gray-300 mb-8 max-w-lg leading-relaxed">
               {t(
                 'Jax Unico conecta, promueve y produce contenido para la comunidad latina. No somos solo un show — somos tu plataforma.',

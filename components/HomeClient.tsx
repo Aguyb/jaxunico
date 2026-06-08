@@ -143,12 +143,16 @@ export default function HomeClient({ latestEpisode, nextEvent, latestArticle }: 
       <section className="py-14 sm:py-20 bg-[#F7F7F7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-14">
-            <div className="badge mx-auto mb-5">{t('Conecta', 'Connect')}</div>
-            <h2 className="section-heading mb-4">
-              <span className="text-[#C6002B]">{t('Plataforma Latina', 'Latino Platform')}</span>
+            <div className="badge mx-auto mb-5">{t('Último Episodio', 'Latest Episode')}</div>
+            <h2 className="section-heading mb-4 text-[#1A1A1A]">
+              {t('Conversación', 'The Most Recent')}<br/>
+              <span className="text-[#1A1A1A]">{t('Más Reciente.', 'Conversation.')}</span>
             </h2>
             <p className="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto">
-              {t('Show, podcast y publicidad — el ecosistema completo para tu marca.', 'Show, podcast and advertising — the complete ecosystem for your brand.')}
+              {t(
+                'Una conversación que te educa sobre las oportunidades de la comunidad y tu negocio.',
+                'A conversation that educates you about community opportunities and your business.'
+              )}
             </p>
           </div>
 

@@ -52,8 +52,8 @@ export default function HomeClient({ latestEpisode, nextEvent, latestArticle }: 
             </div>
             <p className="text-base sm:text-lg text-gray-300 mb-8 max-w-lg leading-relaxed">
               {t(
-                'Jax Unico conecta, promueve y produce contenido para la comunidad latina. No somos solo un show — somos tu plataforma.',
-                'Jax Unico connects, promotes and produces content for the Latino community. We are not just a show — we are your platform.'
+                'Jax Unico — la plataforma única que conecta, promueve y hace crecer la comunidad latina de Jacksonville. Somos tu plataforma.',
+                'Jax Unico — the unique platform that connects, promotes and grows the Latino community of Jacksonville. We are your platform.'
               )}
             </p>
             <div className="flex flex-wrap gap-3">

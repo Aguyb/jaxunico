@@ -17,9 +17,9 @@ export default function Footer() {
           <div>
             <div className="mb-5">
               <img
-                src="/logo.png"
+                src="/logo-dark.png"
                 alt="Jax Unico"
-                className="h-14 w-auto object-contain brightness-0 invert"
+                className="h-10 w-auto object-contain"
               />
             </div>
             <p className="text-sm text-gray-400 leading-relaxed mb-6">

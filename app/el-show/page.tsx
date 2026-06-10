@@ -5,6 +5,26 @@ import { Play, Mic, ArrowRight, CheckCircle, Clock } from 'lucide-react'
 import { getAllEpisodes } from '@/lib/sanity.queries'
 import GuestFormWrapper from '@/components/GuestFormWrapper'
 
+export const metadata = {
+  title: 'Podcast Latino Jacksonville — El Show de Jax Unico',
+  description: 'El podcast latino #1 de Jacksonville, Florida. Conversaciones con emprendedores, líderes y creadores de la comunidad latina. Disponible en Spotify, Apple Podcasts y YouTube.',
+  keywords: ['podcast latino Jacksonville',
+    'podcast Jacksonville Florida',
+    'Latino podcast Florida',
+    'Hispanic podcast Jacksonville',
+    'emprendedores latinos Jacksonville',
+    'podcast comunidad latina',
+    'Jax Unico show'],
+  openGraph: {
+    title: 'El Show de Jax Unico — Podcast Latino #1 de Jacksonville',
+    description: 'El podcast latino #1 de Jacksonville, Florida. Conversaciones con emprendedores, líderes y creadores de la comunidad latina. Disponible en Spotify, Ap',
+    url: 'https://jaxunico.com/el-show',
+  },
+  alternates: { canonical: 'https://jaxunico.com/el-show' },
+}
+
+
+
 const staticEpisodes = [
   { _id: '1', episodeNumber: 1, title: 'Tu Historia Merece Ser Escuchada', guest: 'Episodio de Lanzamiento', duration: '45 min', category: 'Emprendimiento', slug: { current: 'tu-historia-merece-ser-escuchada' }, coverImage: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&q=80' },
   { _id: '2', episodeNumber: 2, title: 'Próximo episodio — disponible pronto', guest: '', duration: '—', category: 'Negocios', slug: { current: 'episodio-002' }, coverImage: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=600&q=80' },

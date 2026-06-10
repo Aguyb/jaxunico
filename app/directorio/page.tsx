@@ -5,6 +5,25 @@ import { MapPin, ArrowRight, CheckCircle, Star, Phone, Globe } from 'lucide-reac
 import { getAllListings } from '@/lib/sanity.queries'
 import DirectorySearch from '@/components/DirectorySearch'
 
+export const metadata = {
+  title: 'Directorio de Negocios Latinos en Jacksonville, Florida',
+  description: 'Directorio completo de negocios latinos en Jacksonville, FL. Encuentra restaurantes, abogados, medicos, contratistas y mas negocios de la comunidad hispana en Jacksonville.',
+  keywords: ['negocios latinos Jacksonville',
+    'directorio latino Jacksonville',
+    'empresas latinas Jacksonville FL',
+    'Hispanic businesses Jacksonville',
+    'Latino business directory Jacksonville',
+    'negocios hispanos Jacksonville Florida'],
+  openGraph: {
+    title: 'Directorio Latino Jacksonville — Encuentra Negocios de tu Comunidad',
+    description: 'Directorio completo de negocios latinos en Jacksonville, FL. Encuentra restaurantes, abogados, medicos, contratistas y mas negocios de la comunidad hi',
+    url: 'https://jaxunico.com/directorio',
+  },
+  alternates: { canonical: 'https://jaxunico.com/directorio' },
+}
+
+
+
 const categories = ['Todos', 'Restaurantes', 'Salud', 'Bienes Raíces', 'Finanzas', 'Legal', 'Belleza', 'Tecnología', 'Educación', 'Construcción']
 
 const staticListings = [

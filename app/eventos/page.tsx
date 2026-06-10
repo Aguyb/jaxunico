@@ -4,6 +4,26 @@ import PageHero from '@/components/PageHero'
 import { TranslatedBtn, TranslatedH2, TranslatedP, TranslatedBadge } from '@/components/Translated'
 import { Calendar, MapPin, Users, ArrowRight, Mic, Star, CheckCircle, Building2 } from 'lucide-react'
 
+export const metadata = {
+  title: 'Eventos Latinos Jacksonville, FL — Networking, Coaching y Conferencias',
+  description: 'Eventos, networking y coaching para la comunidad latina en Jacksonville, Florida. Latin Business Summit, talleres y conferencias. Coaching latino en Jacksonville.',
+  keywords: ['eventos latinos Jacksonville',
+    'Latin events Jacksonville FL',
+    'networking latino Jacksonville',
+    'coaching latino Jacksonville',
+    'Latin Business Summit Jacksonville',
+    'talleres latinos Jacksonville',
+    'coaching events Jacksonville FL'],
+  openGraph: {
+    title: 'Eventos Latinos Jacksonville | Networking y Coaching — Jax Unico',
+    description: 'Eventos, networking y coaching para la comunidad latina en Jacksonville, Florida. Latin Business Summit, talleres y conferencias. Coaching latino en J',
+    url: 'https://jaxunico.com/eventos',
+  },
+  alternates: { canonical: 'https://jaxunico.com/eventos' },
+}
+
+
+
 const communityEvents = [
   { img: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80', title: 'Festival Latino de Jacksonville', desc: 'Celebración de la cultura latina — música, comida, arte y familia.', date: 'Por confirmar', type: 'Festival' },
   { img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&q=80', title: 'Feria de Negocios Latinos', desc: 'Expositores locales, demos de productos y networking intenso.', date: 'Por confirmar', type: 'Feria' },

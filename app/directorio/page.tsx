@@ -6,6 +6,8 @@ import { getAllListings } from '@/lib/sanity.queries'
 import DirectorySearch from '@/components/DirectorySearch'
 import DirectoryRegisterForm from '@/components/DirectoryRegisterForm'
 
+export const revalidate = 0 // Always fetch fresh from Sanity
+
 export const metadata = {
   title: 'Directorio de Negocios Latinos en Jacksonville, Florida',
   description: 'Directorio completo de negocios latinos en Jacksonville, FL. Encuentra restaurantes, abogados, medicos, contratistas y mas negocios de la comunidad hispana en Jacksonville.',

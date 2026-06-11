@@ -9,7 +9,7 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true,
+  useCdn: false, // Always fetch fresh — no cache delay
 })
 
 const builder = imageUrlBuilder(client)

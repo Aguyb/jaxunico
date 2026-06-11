@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import { getLatestEpisode, getNextEvent, getAllArticles } from '@/lib/sanity.queries'
 import HomeClient from '@/components/HomeClient'
 
+export const revalidate = 0 // Always fetch fresh from Sanity
+
 export const metadata: Metadata = {
   title: 'Jax Unico — La Plataforma Latina #1 de Jacksonville, Florida',
   description: 'Jax Unico — plataforma latina de Jacksonville, FL. Podcast latino, producción de video, content creation, marketing digital, eventos latinos y directorio de negocios hispanos en Jacksonville. Aguyb Studios.',

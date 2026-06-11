@@ -5,6 +5,8 @@ import { getAllArticles } from '@/lib/sanity.queries'
 import BlogFilters from '@/components/BlogFilters'
 import { Metadata } from 'next'
 
+export const revalidate = 0 // Always fetch fresh from Sanity
+
 export const metadata: Metadata = {
   title: 'Blog — Jax Unico',
   description: 'Emprendimiento, marketing y comunidad para los latinos de Jacksonville.',

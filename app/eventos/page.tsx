@@ -4,6 +4,8 @@ import PageHero from '@/components/PageHero'
 import { TranslatedBtn, TranslatedH2, TranslatedP, TranslatedBadge } from '@/components/Translated'
 import { Calendar, MapPin, Users, ArrowRight, Mic, Star, CheckCircle, Building2 } from 'lucide-react'
 
+export const revalidate = 0 // Always fetch fresh from Sanity
+
 export const metadata = {
   title: 'Eventos Latinos Jacksonville, FL — Networking, Coaching y Conferencias',
   description: 'Eventos, networking y coaching para la comunidad latina en Jacksonville, Florida. Latin Business Summit, talleres y conferencias. Coaching latino en Jacksonville.',

@@ -5,6 +5,8 @@ import { Play, Mic, ArrowRight, CheckCircle, Clock } from 'lucide-react'
 import { getAllEpisodes } from '@/lib/sanity.queries'
 import GuestFormWrapper from '@/components/GuestFormWrapper'
 
+export const revalidate = 0 // Always fetch fresh from Sanity
+
 export const metadata = {
   title: 'Podcast Latino Jacksonville — El Show de Jax Unico',
   description: 'El podcast latino #1 de Jacksonville, Florida. Conversaciones con emprendedores, líderes y creadores de la comunidad latina. Disponible en Spotify, Apple Podcasts y YouTube.',

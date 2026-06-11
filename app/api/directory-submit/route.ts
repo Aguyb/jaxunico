@@ -28,7 +28,10 @@ async function createSanityListing(data: any): Promise<string | null> {
   const DATASET = process.env.NEXT_PUBLIC_SANITY_DATASET || 'production'
   const TOKEN = process.env.SANITY_API_TOKEN
 
-  if (!TOKEN) return null
+  if (!TOKEN) {
+    console.log('SANITY_API_TOKEN not set — skipping Sanity listing creation')
+    return null
+  }
 
   const doc: any = {
     _type: 'listing',
@@ -94,22 +97,17 @@ async function createSanityListing(data: any): Promise<string | null> {
 
 async function createAirtableRecord(data: any, sanityId: string | null) {
   const AIRTABLE_TOKEN = process.env.AIRTABLE_API_TOKEN
-  const BASE_ID = process.env.AIRTABLE_DIRECTORY_BASE_ID
+  const BASE_ID = process.env.AIRTABLE_DIRECTORY_BASE_ID || 'app6CeBxi2inbKZ6z'
 
-  if (!AIRTABLE_TOKEN || !BASE_ID) return
+  if (!AIRTABLE_TOKEN) {
+    console.log('AIRTABLE_API_TOKEN not set — skipping Airtable record')
+    return
+  }
 
-  // Get the Solicitudes table ID
-  const tablesRes = await fetch(`https://api.airtable.com/v0/meta/bases/${BASE_ID}/tables`, {
-    headers: { Authorization: `Bearer ${AIRTABLE_TOKEN}` },
-  })
+  // Use known table ID directly
+  const SOLICITUDES_TABLE_ID = 'tblSiUrwg6wdolqig'
 
-  if (!tablesRes.ok) return
-
-  const tablesData = await tablesRes.json()
-  const solicitudesTable = tablesData.tables?.find((t: any) => t.name === 'Solicitudes de Registro')
-  if (!solicitudesTable) return
-
-  await fetch(`https://api.airtable.com/v0/${BASE_ID}/${solicitudesTable.id}`, {
+  await fetch(`https://api.airtable.com/v0/${BASE_ID}/${SOLICITUDES_TABLE_ID}`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${AIRTABLE_TOKEN}`,

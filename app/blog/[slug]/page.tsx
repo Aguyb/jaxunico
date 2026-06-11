@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, Clock, Calendar } from 'lucide-react'
 import NewsletterForm from '@/components/NewsletterForm'
+import ShareButtons from '@/components/ShareButtons'
 
 export async function generateStaticParams() {
   const articles = await getAllArticles().catch(() => [])
@@ -60,6 +61,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               <ArrowLeft size={20} /> Todos los artículos
             </Link>
           </div>
+
+          <ShareButtons
+            title={article.title}
+            url={`https://jaxunico.com/blog/${article.slug}`}
+          />
         </div>
       </section>
 

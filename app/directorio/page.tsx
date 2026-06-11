@@ -4,6 +4,7 @@ import { TranslatedBtn, TranslatedH2, TranslatedP, TranslatedBadge } from '@/com
 import { MapPin, ArrowRight, CheckCircle, Star, Phone, Globe } from 'lucide-react'
 import { getAllListings } from '@/lib/sanity.queries'
 import DirectorySearch from '@/components/DirectorySearch'
+import DirectoryRegisterForm from '@/components/DirectoryRegisterForm'
 
 export const metadata = {
   title: 'Directorio de Negocios Latinos en Jacksonville, Florida',
@@ -128,16 +129,7 @@ export default async function DirectorioPage() {
                 </div>
               ))}
             </div>
-            <form className="bg-white rounded-3xl p-5 sm:p-8 space-y-4" action="https://formspree.io/f/mvznkywq" method="POST">
-              <h3 className="font-['Inter'] font-black text-2xl text-[#1A1A1A] mb-2">Registrar mi Negocio</h3>
-              {['Nombre del negocio', 'Categoría', 'Dirección en Jacksonville', 'Teléfono', 'Sitio Web', 'Email de contacto'].map(f => (
-                <input key={f} type="text" name={f.toLowerCase().replace(/ /g,'_')} placeholder={f}
-                  className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-medium focus:outline-none focus:border-[#C6002B]"/>
-              ))}
-              <textarea name="descripcion" rows={3} placeholder="Descripción de tu negocio (2–3 oraciones)"
-                className="w-full border-2 border-gray-200 rounded-2xl px-5 py-4 text-lg font-medium focus:outline-none focus:border-[#C6002B] resize-none"/>
-              <button type="submit" className="btn-primary w-full justify-center text-xl">Registrar Gratis <ArrowRight size={20}/></button>
-            </form>
+<DirectoryRegisterForm />
           </div>
         </div>
       </section>

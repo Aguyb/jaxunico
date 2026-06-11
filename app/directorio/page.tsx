@@ -116,20 +116,27 @@ export default async function DirectorioPage() {
       </section>
 
       {/* Register CTA */}
-      <section className="py-24 bg-[#C6002B]">
+      <section className="py-14 sm:py-20 bg-[#C6002B]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div>
-              <h2 className="font-['Inter'] font-black text-4xl sm:text-5xl lg:text-6xl text-white leading-none mb-6 uppercase tracking-tight">Registra tu<br/>Negocio Gratis</h2>
-              <p className="text-xl text-white/80 leading-relaxed mb-6">Llega a +120,000 latinos en Jacksonville. Gratis. Sin complicaciones.</p>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            {/* Left — white text on red */}
+            <div className="text-white">
+              <div className="badge !bg-white/20 !text-white border border-white/30 mb-6">Directorio Latino</div>
+              <h2 className="font-['Inter'] font-black text-4xl sm:text-5xl text-white leading-none mb-6 uppercase tracking-tight">
+                Registra tu<br/>Negocio<br/>Gratis
+              </h2>
+              <p className="text-lg text-white/80 leading-relaxed mb-6">Llega a +120,000 latinos en Jacksonville. Sin complicaciones.</p>
               {['Listing completo en el directorio', 'Feature en redes sociales', 'Mención en newsletter mensual', 'Conexión con la red latina de JAX'].map(item => (
                 <div key={item} className="flex items-center gap-3 mb-3">
-                  <CheckCircle size={20} className="text-white shrink-0"/>
-                  <span className="text-lg text-white/90">{item}</span>
+                  <CheckCircle size={18} className="text-white shrink-0"/>
+                  <span className="text-base text-white/90">{item}</span>
                 </div>
               ))}
             </div>
-<DirectoryRegisterForm />
+            {/* Right — white card wrapping the form */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-2xl">
+              <DirectoryRegisterForm />
+            </div>
           </div>
         </div>
       </section>

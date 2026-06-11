@@ -317,7 +317,7 @@ export default function DirectoryRegisterForm() {
       )}
 
       <button type="submit" disabled={status === 'uploading'}
-        className="btn-primary w-full justify-center text-lg py-4 disabled:opacity-60">
+        className="w-full bg-[#1A1A1A] text-white font-bold text-lg py-4 px-6 rounded-2xl hover:bg-black transition-colors disabled:opacity-60 flex items-center justify-center gap-2">
         {status === 'uploading' ? (
           <><div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"/> {t('Enviando...', 'Sending...')}</>
         ) : (

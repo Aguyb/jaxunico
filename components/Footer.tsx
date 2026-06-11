@@ -25,22 +25,36 @@ export default function Footer() {
             <p className="text-sm text-gray-400 leading-relaxed mb-6">
               La única plataforma de medios latina en Jacksonville, Florida. Producida por Aguyb Studios.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 flex-wrap">
               {[
-                { icon: Instagram, href: 'https://instagram.com/jaxunico', label: 'Instagram' },
-                { icon: Youtube, href: 'https://youtube.com/@jaxunico', label: 'YouTube' },
-                { icon: Facebook, href: 'https://facebook.com/jaxunico', label: 'Facebook' },
-                { icon: Linkedin, href: 'https://linkedin.com/company/jaxunico', label: 'LinkedIn' },
+                { icon: Instagram, href: 'https://www.instagram.com/jaxunico', label: 'Instagram' },
+                { icon: Youtube, href: 'https://www.youtube.com/@JaxUnico', label: 'YouTube' },
+                { icon: Facebook, href: 'https://www.facebook.com/jaxunico', label: 'Facebook' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/company/130884015/', label: 'LinkedIn' },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#C6002B] transition-colors duration-200"
                 >
                   <Icon size={16} />
                 </a>
               ))}
+              {/* TikTok */}
+              <a
+                href="https://www.tiktok.com/@jax.unico"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+                className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#C6002B] transition-colors duration-200"
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z"/>
+                </svg>
+              </a>
             </div>
           </div>
 

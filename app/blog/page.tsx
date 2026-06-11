@@ -36,7 +36,7 @@ export default async function BlogPage() {
   const cmsArticles = await getAllArticles().catch(() => [])
   const posts = cmsArticles.length > 0 ? cmsArticles : staticPosts
   const featured = posts[0]
-  const grid = posts.slice(1)
+  const allPosts = posts // all posts passed to BlogFilters for filtering
 
   return (
     <>
@@ -75,28 +75,8 @@ export default async function BlogPage() {
                 </Link>
               )}
 
-              {/* Filters — client component */}
-              <BlogFilters categories={categories} />
-
-              {/* Grid */}
-              <div className="grid sm:grid-cols-2 gap-7">
-                {grid.map((post: any) => (
-                  <Link key={post._id} href={`/blog/${post.slug}`} className="card overflow-hidden group hover:-translate-y-2 transition-all duration-300 cursor-pointer block">
-                    <div className="h-44 overflow-hidden">
-                      <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    </div>
-                    <div className="p-6">
-                      <span className="badge !text-xs mb-3">{post.category}</span>
-                      <h3 className="font-bold text-xl text-[#1A1A1A] mb-2 group-hover:text-[#C6002B] transition-colors line-clamp-2">{post.title}</h3>
-                      <p className="text-base text-gray-500 leading-relaxed mb-4 line-clamp-3">{post.excerpt}</p>
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm font-semibold text-gray-400 flex items-center gap-1"><Clock size={13}/>{post.readTime}</span>
-                        <span className="text-base font-bold text-[#C6002B] flex items-center gap-1">Leer <ArrowRight size={14}/></span>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
+              {/* Filters + Grid — client component handles filtering */}
+              <BlogFilters categories={categories} posts={allPosts} />
             </div>
 
             {/* SIDEBAR */}

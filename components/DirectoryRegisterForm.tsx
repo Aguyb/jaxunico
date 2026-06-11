@@ -92,15 +92,66 @@ export default function DirectoryRegisterForm() {
     setErrorMsg('')
 
     try {
-      const fd = new FormData()
-      Object.entries(form).forEach(([k, v]) => fd.append(k, v))
-      if (coverFile) fd.append('coverImage', coverFile)
-      if (logoFile) fd.append('logo', logoFile)
+      // Step 1 — Upload photos directly to Cloudinary unsigned
+      const cloudName = 'ddskiyir6'
+      const preset = 'jaxunico_unsigned'
 
-      const res = await fetch('/api/directory-submit', { method: 'POST', body: fd })
-      const data = await res.json()
+      const uploadPhoto = async (file: File, folder: string): Promise<string> => {
+        const fd = new FormData()
+        fd.append('file', file)
+        fd.append('upload_preset', preset)
+        fd.append('folder', `jaxunico/${folder}`)
+        const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, { method: 'POST', body: fd })
+        const data = await res.json()
+        return data.secure_url || ''
+      }
 
-      if (!res.ok) throw new Error(data.error || 'Submission failed')
+      const [coverImageUrl, logoUrl] = await Promise.all([
+        coverFile ? uploadPhoto(coverFile, 'directory/covers') : Promise.resolve(''),
+        logoFile ? uploadPhoto(logoFile, 'directory/logos') : Promise.resolve(''),
+      ])
+
+      // Step 2 — Submit directly to Airtable
+      const AIRTABLE_TOKEN = process.env.NEXT_PUBLIC_AIRTABLE_TOKEN
+      const BASE_ID = 'app6CeBxi2inbKZ6z'
+      const TABLE_ID = 'tblSiUrwg6wdolqig'
+
+      const notes = [
+        form.description ? `Descripción: ${form.description}` : '',
+        form.website ? `Web: ${form.website}` : '',
+        form.instagram ? `IG: @${form.instagram}` : '',
+        form.zone ? `Zona: ${form.zone}` : '',
+        coverImageUrl ? `📷 Foto: ${coverImageUrl}` : '',
+        logoUrl ? `🎨 Logo: ${logoUrl}` : '',
+      ].filter(Boolean).join('\n')
+
+      const res = await fetch(`https://api.airtable.com/v0/${BASE_ID}/${TABLE_ID}`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${AIRTABLE_TOKEN}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fields: {
+            'Solicitud': `${form.businessName} — ${new Date().toLocaleDateString('es-US')}`,
+            'Nombre del Negocio': form.businessName,
+            'Dueño': form.ownerName,
+            'Email': form.email,
+            'Teléfono': form.phone,
+            'Categoría': form.category,
+            'Estado de Solicitud': '🟡 Nueva',
+            'Fecha de Solicitud': new Date().toISOString().split('T')[0],
+            'Plan Seleccionado': form.plan,
+            'Notas': notes,
+          },
+        }),
+      })
+
+      if (!res.ok) {
+        const err = await res.json()
+        throw new Error(err?.error?.message || 'Airtable submission failed')
+      }
+
       setStatus('success')
 
     } catch (err: any) {

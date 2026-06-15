@@ -4,6 +4,7 @@ import { CheckCircle, X, Eye, EyeOff, RefreshCw, ExternalLink } from 'lucide-rea
 
 const AIRTABLE_TOKEN = process.env.NEXT_PUBLIC_AIRTABLE_TOKEN
 const BASE_ID = 'app6CeBxi2inbKZ6z'
+const SANITY_TOKEN = process.env.NEXT_PUBLIC_SANITY_TOKEN || ''
 const SANITY_PROJECT = '24ezss24'
 const SANITY_DATASET = 'production'
 
@@ -101,13 +102,7 @@ export default function ApprovalsPage() {
     setError('')
 
     try {
-      // First get Sanity token from API
-      const sanityToken = (window as any).__SANITY_TOKEN__
-      if (!sanityToken) {
-        setError('Sanity token not set. Contact admin.')
-        setPublishing(null)
-        return
-      }
+      const sanityToken = SANITY_TOKEN
 
       // Build Sanity document
       const doc: any = {
@@ -210,14 +205,7 @@ export default function ApprovalsPage() {
           </div>
         )}
 
-        {/* Sanity token input */}
-        <div className="bg-white rounded-2xl p-5 mb-6 border border-gray-200">
-          <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2">Sanity Token (requerido para publicar)</p>
-          <input type="password" placeholder="Paste your Sanity Manager token here"
-            className="w-full border-2 border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-[#C6002B]"
-            onChange={e => { (window as any).__SANITY_TOKEN__ = e.target.value }}/>
-          <p className="text-xs text-gray-400 mt-1.5">sanity.io/manage → project 24ezss24 → API → Tokens → Create Manager token</p>
-        </div>
+  
 
         {loading ? (
           <div className="text-center py-16 text-gray-400 font-semibold">Cargando solicitudes...</div>

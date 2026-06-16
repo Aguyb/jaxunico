@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 const SANITY_PROJECT = '24ezss24'
 const SANITY_DATASET = 'production'
-const SANITY_TOKEN = process.env.SANITY_WRITE_TOKEN || 'skyu0yJ3mGnDMiXDw8pjw6QMLuErf1AXkrtV1hph00rUCJbYCUkkUi6rGK4kibPus9HRLrPQDiDoF8hQSvMZqd17p0kQKPzwowt6dU1hwhubr9o0f7aOPyzASRtt3L9kes65ca8OxZ38p0QAnRjTVCHdiYLfFP0lNBdWbnoFe88wzx7J8E8e'
+const SANITY_TOKEN = process.env.SANITY_WRITE_TOKEN || 'skY8FLI0Lu4uCdJHSd62A3aI4PyyAF4k9Pq9wr2nKbfOlLKdlU7RwHTMmedV87hKQGvr46w79epln4OzR6pxtFg4YdFfrDyY9wJTpFa7vxU1nE8MYMNgnHLAlKBHHmBeUuUy8ehg9Yv9lxPs7Twl3xmihw6hiVmXWI5fdkujnxTq9S4mk3qt'
 
 export async function POST(req: NextRequest) {
   try {

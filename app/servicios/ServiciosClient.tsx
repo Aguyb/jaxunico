@@ -63,11 +63,18 @@ export default function ServiciosClient() {
   const { t } = useLang()
   return (
     <>
-      {/* Hero */}
+      {/* Hero — video background */}
       <section className="relative bg-[#1A1A1A] py-14 sm:py-12 sm:py-16 lg:py-20 overflow-hidden">
         <div className="absolute inset-0">
-          <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1600&q=80"
-            alt="Studio" className="w-full h-full object-cover opacity-20" />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-25"
+          >
+            <source src="/jaxunico-ads.mp4" type="video/mp4"/>
+          </video>
           <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A] via-[#1A1A1A]/90 to-transparent" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,6 +91,33 @@ export default function ServiciosClient() {
               <Link href="#servicios" className="border-2 border-white/30 text-white hover:border-white font-semibold px-5 py-3 sm:px-8 sm:py-4 rounded-2xl transition-all text-xl inline-flex items-center gap-2">Ver Servicios</Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Ad Video Section */}
+      <section className="bg-[#1A1A1A] py-14 sm:py-16">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mx-auto mb-4">Aguyb Studios — Jax Unico</div>
+            <h2 className="font-['Inter'] font-black text-3xl sm:text-4xl text-white tracking-tight uppercase">
+              Así Se Ve la <span className="text-[#C6002B]">Calidad</span> que Producimos
+            </h2>
+          </div>
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              controls
+              className="w-full aspect-video object-cover"
+            >
+              <source src="/jaxunico-ads.mp4" type="video/mp4"/>
+            </video>
+          </div>
+          <p className="text-center text-gray-400 text-sm mt-4">
+            ¿Quieres un video así para tu negocio? <Link href="#contacto" className="text-[#C6002B] font-bold hover:underline">Solicita tu propuesta gratis →</Link>
+          </p>
         </div>
       </section>
 

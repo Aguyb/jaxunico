@@ -271,8 +271,16 @@ export default function HomeClient({ latestEpisode, nextEvent, latestArticle }: 
               </Link>
             </div>
             <div className="relative mt-8 lg:mt-0">
-              <div className="wiggle rounded-2xl overflow-hidden aspect-square max-w-sm mx-auto">
-                <img src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80" alt="Video production" className="img-cover"/>
+              <div className="wiggle rounded-2xl overflow-hidden aspect-video max-w-sm mx-auto shadow-2xl">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                >
+                  <source src="/jaxunico-ads.mp4" type="video/mp4"/>
+                </video>
               </div>
               <div className="absolute -bottom-4 -left-2 sm:-bottom-6 sm:-left-6 bg-[#C6002B] rounded-2xl p-4 shadow-2xl float-y">
                 <div className="text-white font-['Inter'] font-black text-3xl sm:text-4xl leading-none">+94%</div>

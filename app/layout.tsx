@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Ticker from '@/components/Ticker'
 import { LangProvider } from '@/lib/lang'
+import WhatsAppButton from '@/components/WhatsAppButton'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://jaxunico.com'),
@@ -205,6 +206,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Ticker />
           <main>{children}</main>
           <Footer />
+          <WhatsAppButton />
         </LangProvider>
       </body>
     </html>

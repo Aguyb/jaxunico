@@ -270,13 +270,14 @@ export default function HomeClient({ latestEpisode, nextEvent, latestArticle }: 
                 {t('Crea tu Sistema de Contenido', 'Create Your Content System')} <ArrowRight size={18}/>
               </Link>
             </div>
-            <div className="relative mt-8 lg:mt-0">
-              <div className="wiggle rounded-2xl overflow-hidden aspect-video max-w-sm mx-auto shadow-2xl">
+            <div className="relative mt-8 lg:mt-0 flex justify-center">
+              <div className="wiggle rounded-2xl overflow-hidden max-w-[280px] w-full shadow-2xl" style={{aspectRatio:'9/16'}}>
                 <video
-                  autoPlay
                   loop
                   muted
+                  autoPlay
                   playsInline
+                  controls
                   className="w-full h-full object-cover"
                 >
                   <source src="/jaxunico-ads.mp4" type="video/mp4"/>

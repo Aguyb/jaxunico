@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { X, Send, ArrowRight } from 'lucide-react'
 import { useLang } from '@/lib/lang'
 
-const WHATSAPP_NUMBER = '19046180826' // Replace with your actual WhatsApp number
+const WHATSAPP_NUMBER = '19047384860'
 
 export default function WhatsAppButton() {
   const { t } = useLang()

@@ -96,26 +96,28 @@ export default function ServiciosClient() {
 
       {/* Ad Video Section */}
       <section className="bg-[#1A1A1A] py-14 sm:py-16">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mx-auto mb-4">Aguyb Studios — Jax Unico</div>
             <h2 className="font-['Inter'] font-black text-3xl sm:text-4xl text-white tracking-tight uppercase">
               Así Se Ve la <span className="text-[#C6002B]">Calidad</span> que Producimos
             </h2>
           </div>
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              controls
-              className="w-full aspect-video object-cover"
-            >
-              <source src="/jaxunico-ads.mp4" type="video/mp4"/>
-            </video>
+          <div className="flex justify-center">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 w-full max-w-sm" style={{aspectRatio:'9/16'}}>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls
+                className="w-full h-full object-cover"
+              >
+                <source src="/jaxunico-ads.mp4" type="video/mp4"/>
+              </video>
+            </div>
           </div>
-          <p className="text-center text-gray-400 text-sm mt-4">
+          <p className="text-center text-gray-400 text-sm mt-6">
             ¿Quieres un video así para tu negocio? <Link href="#contacto" className="text-[#C6002B] font-bold hover:underline">Solicita tu propuesta gratis →</Link>
           </p>
         </div>

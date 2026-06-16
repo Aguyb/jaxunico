@@ -34,10 +34,10 @@ export default function AnunciaClient() {
           <div className="max-w-3xl">
             <div className="badge !bg-red-900/40 !text-red-300 border border-red-700/40 mb-6">Publicidad y Patrocinios</div>
             <h1 className="font-['Inter'] font-black tracking-tight text-4xl sm:text-5xl lg:text-7xl leading-none tracking-wide text-white mb-8 uppercase">
-              Llega a la<br />Comunidad<br />Latina Más<br /><span className="text-[#C6002B]">Activa de JAX.</span>
+              Promociona<br />tu Marca<br /><span className="text-[#C6002B]">en Jacksonville.</span>
             </h1>
             <p className="text-xl text-gray-300 leading-relaxed mb-10 max-w-xl">
-              Conecta tu marca con +120,000 latinos en Jacksonville a través del show, podcast, redes sociales y eventos en vivo.
+              Conecta tu negocio con más de 120,000 latinos en Jacksonville a través de nuestro podcast, programas digitales, redes sociales, directorio empresarial y eventos presenciales.
             </p>
             <div className="flex gap-4 flex-wrap">
               <Link href="#contacto" className="btn-primary text-xl px-5 py-3 sm:px-8 sm:py-4">Solicitar Media Kit <ArrowRight size={22}/></Link>

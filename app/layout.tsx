@@ -9,10 +9,10 @@ import WhatsAppButton from '@/components/WhatsAppButton'
 export const metadata: Metadata = {
   metadataBase: new URL('https://jaxunico.com'),
   title: {
-    default: 'Jax Unico — La Plataforma Latina de Jacksonville, Florida',
-    template: '%s | Jax Unico — Latino Media Jacksonville',
+    default: 'Jax Unico — Donde la Comunidad Latina Crece, Conecta y Prospera en Jacksonville, FL',
+    template: '%s | Jax Unico Jacksonville',
   },
-  description: 'Jax Unico es la plataforma latina #1 de Jacksonville, Florida. Podcast latino, producción de video, marketing, eventos y directorio de negocios latinos. Conectamos, promovemos y hacemos crecer la comunidad latina de Jacksonville.',
+  description: 'Jax Unico reúne a emprendedores, profesionales, creadores y negocios latinos en Jacksonville, Florida. Conectamos oportunidades, promovemos marcas y ofrecemos producción de video, podcast, marketing digital, directorio empresarial y eventos para acelerar el crecimiento de la comunidad latina.',
   keywords: [
     'plataforma latina Jacksonville',
     'Latino Jacksonville Florida',

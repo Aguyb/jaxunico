@@ -32,9 +32,9 @@ export default function HomeClient({ latestEpisode, nextEvent, latestArticle }: 
               Jacksonville, Florida
             </div>
             <h1 className="font-['Inter'] font-black text-5xl sm:text-6xl lg:text-[90px] leading-none tracking-tight text-white mb-6 uppercase">
-              {t('Plataforma', 'Latin')}<br/>
-              <span className="text-[#C6002B]">{t('Latina de', 'Jacksonville')}</span><br/>
-              {t('Jacksonville.', 'Platform.')}
+              {t('Donde la', 'Where the')}<br/>
+              <span className="text-[#C6002B]">{t('Comunidad Latina', 'Latino Community')}</span><br/>
+              {t('Crece.', 'Grows.')}
             </h1>
             {/* Descriptor tags */}
             <div className="flex flex-wrap gap-2 mb-6">
@@ -52,8 +52,8 @@ export default function HomeClient({ latestEpisode, nextEvent, latestArticle }: 
             </div>
             <p className="text-base sm:text-lg text-gray-300 mb-8 max-w-lg leading-relaxed">
               {t(
-                'Jax Unico — la plataforma única que conecta, promueve y hace crecer la comunidad latina de Jacksonville. Somos tu plataforma.',
-                'Jax Unico — the unique platform that connects, promotes and grows the Latino community of Jacksonville. We are your platform.'
+                'Jax Unico reúne a emprendedores, profesionales, creadores y negocios latinos en Jacksonville. Conectamos oportunidades, promovemos marcas y ofrecemos herramientas de producción y marketing para acelerar el crecimiento de nuestra comunidad.',
+                'Jax Unico brings together Latino entrepreneurs, professionals, creators and businesses in Jacksonville. We connect opportunities, promote brands and offer production and marketing tools to accelerate our community\'s growth.'
               )}
             </p>
             <div className="flex flex-wrap gap-3">

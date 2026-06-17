@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     title: 'Video Production & Content Creation Jacksonville FL | Jax Unico',
     description: 'Professional video production, podcast, social media content and digital marketing for businesses in Jacksonville. Latino-owned production studio.',
     url: 'https://jaxunico.com/servicios',
+    images: [{ url: '/studio-bg.jpg', width: 1200, height: 630, alt: 'Aguyb Studios — Video Production Jacksonville' }],
   },
   alternates: { canonical: 'https://jaxunico.com/servicios' },
 }

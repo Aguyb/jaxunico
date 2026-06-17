@@ -66,15 +66,8 @@ export default function ServiciosClient() {
       {/* Hero — video background */}
       <section className="relative bg-[#1A1A1A] py-14 sm:py-12 sm:py-16 lg:py-20 overflow-hidden">
         <div className="absolute inset-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover opacity-25"
-          >
-            <source src="/jaxunico-ads.mp4" type="video/mp4"/>
-          </video>
+          <img src="/studio-bg.jpg"
+            alt="Aguyb Studios" className="w-full h-full object-cover opacity-40" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A1A] via-[#1A1A1A]/90 to-transparent" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

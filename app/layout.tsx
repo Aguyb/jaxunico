@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 import Ticker from '@/components/Ticker'
 import { LangProvider } from '@/lib/lang'
 import WhatsAppButton from '@/components/WhatsAppButton'
-import { GoogleAnalytics } from '@next/third-parties/google'
+import Script from 'next/script'
 export const metadata: Metadata = {
   metadataBase: new URL('https://jaxunico.com'),
   title: {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
   description: 'Jax Unico reúne a emprendedores, profesionales, creadores y negocios latinos en Jacksonville, Florida. Conectamos oportunidades, promovemos marcas y ofrecemos producción de video, podcast, marketing digital, directorio empresarial y eventos para acelerar el crecimiento de la comunidad latina.',
   keywords: [
-    'plataforma latina Jacksonville',
+    'plataforma latina Jacksonville'
     'Latino Jacksonville Florida',
     'podcast latino Jacksonville',
     'comunidad latina Jacksonville',
@@ -208,7 +208,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
           <WhatsAppButton />
         </LangProvider>
-        <GoogleAnalytics gaId="G-2EE8CV2DY9" />
+                <Script src="https://www.googletagmanager.com/gtag/js?id=G-2EE8CV2DY9" strategy="afterInteractive" />
+                <Script id="google-analytics" strategy="afterInteractive">
+                  {`window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                                      gtag('js', new Date());
+                                                gtag('config', 'G-2EE8CV2DY9');`}
+                </Script>
       </body>
     </html>
   )

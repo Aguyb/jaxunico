@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 import Ticker from '@/components/Ticker'
 import { LangProvider } from '@/lib/lang'
 import WhatsAppButton from '@/components/WhatsAppButton'
-
+import { GoogleAnalytics } from '@next/third-parties/google'
 export const metadata: Metadata = {
   metadataBase: new URL('https://jaxunico.com'),
   title: {
@@ -207,7 +207,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main>{children}</main>
           <Footer />
           <WhatsAppButton />
-        </LangProvider>
+        </LangProvider><GoogleAnalytics gaId="G-2EE8CV2DY9" />
       </body>
     </html>
   )

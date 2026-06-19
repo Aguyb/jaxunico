@@ -92,7 +92,7 @@ export default function DirectoryRegisterForm() {
     setErrorMsg('')
 
     try {
-      // Step 1 — Upload photos directly to Cloudinary unsigned
+      // Step 1 — Upload photos directly to Cloudinary (unsigned, no token needed)
       const cloudName = 'ddskiyir6'
       const preset = 'jaxunico_unsigned'
 
@@ -111,39 +111,29 @@ export default function DirectoryRegisterForm() {
         logoFile ? uploadPhoto(logoFile, 'directory/logos') : Promise.resolve(''),
       ])
 
-      // Step 2 — Submit via server-side API route
-      
-      const notes = [
-        form.description ? `Descripción: ${form.description}` : '',
-        form.website ? `Web: ${form.website}` : '',
-        form.instagram ? `IG: @${form.instagram}` : '',
-        form.zone ? `Zona: ${form.zone}` : '',
-        coverImageUrl ? `📷 Foto: ${coverImageUrl}` : '',
-        logoUrl ? `🎨 Logo: ${logoUrl}` : '',
-      ].filter(Boolean).join('\n')
-
+      // Step 2 — Submit through server API (creates Sanity draft + Airtable record)
       const res = await fetch('/api/submit-listing', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          fields: {
-            'Solicitud': `${form.businessName} — ${new Date().toLocaleDateString('es-US')}`,
-            'Nombre del Negocio': form.businessName,
-            'Dueño': form.ownerName,
-            'Email': form.email,
-            'Teléfono': form.phone,
-            'Categoría': form.category,
-            'Estado de Solicitud': '🟡 Nueva',
-            'Fecha de Solicitud': new Date().toISOString().split('T')[0],
-            'Plan Seleccionado': form.plan,
-            'Notas': notes,
-          },
+          businessName: form.businessName,
+          ownerName: form.ownerName,
+          email: form.email,
+          phone: form.phone,
+          category: form.category,
+          zone: form.zone,
+          description: form.description,
+          website: form.website,
+          instagram: form.instagram,
+          plan: form.plan,
+          coverImageUrl,
+          logoUrl,
         }),
       })
 
       if (!res.ok) {
         const err = await res.json()
-        throw new Error(err?.error?.message || 'Airtable submission failed')
+        throw new Error(err?.error || 'Submission failed')
       }
 
       setStatus('success')

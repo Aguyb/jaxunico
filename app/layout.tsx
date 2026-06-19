@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
   description: 'Jax Unico reúne a emprendedores, profesionales, creadores y negocios latinos en Jacksonville, Florida. Conectamos oportunidades, promovemos marcas y ofrecemos producción de video, podcast, marketing digital, directorio empresarial y eventos para acelerar el crecimiento de la comunidad latina.',
   keywords: [
-    'plataforma latina Jacksonville'
+    'plataforma latina Jacksonville',
     'Latino Jacksonville Florida',
     'podcast latino Jacksonville',
     'comunidad latina Jacksonville',

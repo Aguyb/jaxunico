@@ -22,6 +22,7 @@ interface Submission {
   logoUrl: string
   website: string
   instagram: string
+  sanityId: string
 }
 
 function parseNotes(notes: string = '') {
@@ -37,6 +38,7 @@ function parseNotes(notes: string = '') {
     zone: get('zona'),
     coverUrl: get('foto').replace('📷 ','').trim(),
     logoUrl: get('logo').replace('🎨 ','').trim(),
+    sanityId: get('sanity id'),
   }
 }
 
@@ -94,6 +96,7 @@ export default function ApprovalsPage() {
           logoUrl: parsed.logoUrl || '',
           website: parsed.website || '',
           instagram: parsed.instagram || '',
+          sanityId: parsed.sanityId || '',
         }
       })
       setSubmissions(records)
@@ -105,7 +108,6 @@ export default function ApprovalsPage() {
     setPublishing(sub.id)
     setError('')
     try {
-      // Call server API route (has Sanity token server-side)
       const res = await fetch('/api/approve-business', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -118,12 +120,13 @@ export default function ApprovalsPage() {
           website: sub.website,
           instagram: sub.instagram,
           coverUrl: sub.coverUrl,
+          sanityId: sub.sanityId || undefined,
         }),
       })
       const result = await res.json()
       if (!res.ok) throw new Error(result.error || 'Error al publicar')
 
-      // Update Airtable status
+      // Update Airtable status to approved
       const tid = await getTableId()
       await fetch(`https://api.airtable.com/v0/${BASE_ID}/${tid}/${sub.id}`, {
         method: 'PATCH',
@@ -258,6 +261,7 @@ export default function ApprovalsPage() {
                     {sub.website && <a href={sub.website} target="_blank" className="flex items-center gap-1 hover:text-[#C6002B]"><Globe size={10}/>Website</a>}
                     {sub.instagram && <span className="flex items-center gap-1"><Instagram size={10}/>@{sub.instagram}</span>}
                     {sub.logoUrl && <a href={sub.logoUrl} target="_blank" className="flex items-center gap-1 hover:text-[#C6002B]"><ExternalLink size={10}/>Logo</a>}
+                    {sub.sanityId && <span className="text-green-500 font-semibold">✓ Sanity draft ready</span>}
                   </div>
                 </div>
               </div>

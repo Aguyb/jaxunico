@@ -32,8 +32,7 @@ export async function POST(req: NextRequest) {
   } catch (err: any) {
     return NextResponse.json({ error: err.message || 'Server error' }, { status: 500 })
   }
-}
-import { NextRequest, NextResponse } from 'next/server'
+}import { NextRequest, NextResponse } from 'next/server'
 
 const BASE_ID = 'app6CeBxi2inbKZ6z'
 const TABLE_ID = 'tblSiUrwg6wdolqig'
@@ -54,7 +53,7 @@ export async function POST(req: NextRequest) {
         Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ fields }),
+      body: JSON.stringify({ fields, typecast: true }),
     })
 
     if (!res.ok) {

@@ -111,11 +111,8 @@ export default function DirectoryRegisterForm() {
         logoFile ? uploadPhoto(logoFile, 'directory/logos') : Promise.resolve(''),
       ])
 
-      // Step 2 — Submit directly to Airtable
-      const AIRTABLE_TOKEN = process.env.NEXT_PUBLIC_AIRTABLE_TOKEN
-      const BASE_ID = 'app6CeBxi2inbKZ6z'
-      const TABLE_ID = 'tblSiUrwg6wdolqig'
-
+      // Step 2 — Submit via server-side API route
+      
       const notes = [
         form.description ? `Descripción: ${form.description}` : '',
         form.website ? `Web: ${form.website}` : '',
@@ -125,12 +122,9 @@ export default function DirectoryRegisterForm() {
         logoUrl ? `🎨 Logo: ${logoUrl}` : '',
       ].filter(Boolean).join('\n')
 
-      const res = await fetch(`https://api.airtable.com/v0/${BASE_ID}/${TABLE_ID}`, {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${AIRTABLE_TOKEN}`,
-          'Content-Type': 'application/json',
-        },
+      const res = await fetch('/api/submit-listing', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           fields: {
             'Solicitud': `${form.businessName} — ${new Date().toLocaleDateString('es-US')}`,

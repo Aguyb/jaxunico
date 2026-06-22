@@ -119,7 +119,7 @@ export default function HomeClient({ latestEpisode, nextEvent, latestArticle }: 
                 </div>
                 <div className="space-y-3 mt-6">
                   <div className="rounded-2xl overflow-hidden h-32 sm:h-36 bg-gray-100">
-                    <img src="https://images.unsplash.com/photo-1496080174650-637e3f22fa03?w=600&q=80" alt="Business" className="img-cover"/>
+                    <img src="https://images.unsplash.com/photo-1595539724264-07da84f94c4e?w=600&q=80" alt="Jacksonville Skyline" className="img-cover"/>
                   </div>
                   <div className="wiggle rounded-2xl overflow-hidden h-44 sm:h-52 bg-gray-100" style={{animationDelay:'1.5s'}}>
                     <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&q=80" alt="Studio" className="img-cover"/>

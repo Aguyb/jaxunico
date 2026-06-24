@@ -4,6 +4,15 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, Clock, Mic } from 'lucide-react'
 
+// Accepts bare ID, youtu.be/ID, or full youtube.com/watch?v=ID
+function extractYoutubeId(input: string): string {
+  if (!input) return ''
+  const s = input.trim()
+  if (/^[a-zA-Z0-9_-]{11}$/.test(s)) return s
+  const m = s.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/))([a-zA-Z0-9_-]{11})/)
+  return m ? m[1] : s
+}
+
 async function getEpisodeBySlug(slug: string) {
   return client.fetch(`
     *[_type == "episode" && slug.current == $slug][0] {
@@ -23,6 +32,8 @@ export default async function EpisodePage({ params }: { params: Promise<{ slug: 
   const { slug } = await params
   const episode = await getEpisodeBySlug(slug).catch(() => null)
   if (!episode) notFound()
+
+  const ytId = extractYoutubeId(episode.youtubeId || '')
 
   return (
     <>
@@ -51,14 +62,13 @@ export default async function EpisodePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* YouTube Player */}
-      {episode.youtubeId && (
+      {ytId && (
         <section className="bg-black">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="aspect-video w-full">
               <iframe
                 className="w-full h-full"
-                src={`https://www.youtube.com/embed/${episode.youtubeId}`}
+                src={`https://www.youtube.com/embed/${ytId}`}
                 title={episode.title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -68,7 +78,6 @@ export default async function EpisodePage({ params }: { params: Promise<{ slug: 
         </section>
       )}
 
-      {/* Description + Listen links */}
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {episode.description && (
@@ -88,8 +97,8 @@ export default async function EpisodePage({ params }: { params: Promise<{ slug: 
                 <a href={episode.appleUrl} target="_blank" rel="noreferrer"
                   className="btn-outline !text-base !py-3">🎙️ Apple Podcasts</a>
               )}
-              {episode.youtubeId && (
-                <a href={`https://youtube.com/watch?v=${episode.youtubeId}`} target="_blank" rel="noreferrer"
+              {ytId && (
+                <a href={`https://youtube.com/watch?v=${ytId}`} target="_blank" rel="noreferrer"
                   className="btn-outline !text-base !py-3">▶️ YouTube</a>
               )}
             </div>

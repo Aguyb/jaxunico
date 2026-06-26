@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight, Clock, Mic, Play } from 'lucide-react'
 import NewsletterForm from '@/components/NewsletterForm'
-import { getAllArticles } from '@/lib/sanity.queries'
+import { getAllArticles, getAllEpisodes } from '@/lib/sanity.queries'
 import BlogFilters from '@/components/BlogFilters'
 import { Metadata } from 'next'
 
@@ -27,15 +27,14 @@ const staticPosts = [
   { _id: '5', slug: { current: '5-razones-anunciar-medios-latinos' }, cat: 'Negocios Latinos', category: 'Negocios Latinos', title: '5 Razones para Anunciar en Medios Latinos', excerpt: 'El ROI de conectar con la comunidad latina supera al de los medios tradicionales.', readTime: '5 min', coverImage: 'https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&q=80' },
 ]
 
-const suggestedEpisodes = [
-  { num: '001', title: 'Tu Historia Merece Ser Escuchada', duration: '45 min', img: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=400&q=80', slug: 'tu-historia-merece-ser-escuchada' },
-  { num: '002', title: 'Cómo Construir una Marca Latina Poderosa', duration: '38 min', img: 'https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=400&q=80', slug: 'como-construir-una-marca-latina-poderosa' },
-  { num: '003', title: 'De Empleado a Empresario — El Salto', duration: '52 min', img: 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=400&q=80', slug: 'de-empleado-a-empresario-el-salto' },
-]
 
 export default async function BlogPage() {
   // Fetch from Sanity — falls back to static data if CMS is empty
-  const cmsArticles = await getAllArticles().catch(() => [])
+  const [cmsArticles, allEpisodes] = await Promise.all([
+  getAllArticles().catch(() => []),
+  getAllEpisodes().catch(() => []),
+])
+const latestEpisodes = allEpisodes.slice(0, 3)
   const posts = cmsArticles.length > 0 ? cmsArticles : staticPosts
   const featured = posts[0]
   const allPosts = posts // all posts passed to BlogFilters for filtering
@@ -146,7 +145,7 @@ export default async function BlogPage() {
             {suggestedEpisodes.map(ep => (
               <Link key={ep.num} href={`/el-show/${ep.slug}`} className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden group hover:bg-white/10 hover:border-[#C6002B]/40 transition-all cursor-pointer block">
                 <div className="h-48 relative overflow-hidden">
-                  <img src={ep.img} alt={ep.title} className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" />
+                  <img src={ep.coverImage || 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=400&q=80'} alt={ep.title} className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-16 h-16 bg-[#C6002B] rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
                       <Play size={24} className="text-white ml-1" fill="white" />
@@ -154,7 +153,7 @@ export default async function BlogPage() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <div className="text-sm font-bold text-gray-500 mb-2 uppercase tracking-widest">EP. {ep.num}</div>
+                  <div className="text-sm font-bold text-gray-500 mb-2 uppercase tracking-widest">EP. {String(ep.episodeNumber).padStart(3, '0')}</div>
                   <h3 className="font-bold text-xl text-white mb-2 group-hover:text-[#C6002B] transition-colors">{ep.title}</h3>
                   <div className="flex items-center gap-2 text-gray-400 text-base">
                     <Mic size={14} className="text-[#C6002B]"/>{ep.duration}

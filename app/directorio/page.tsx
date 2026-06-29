@@ -7,8 +7,41 @@ import DirectoryClient from '@/components/DirectoryClient'
 export const revalidate = 0
 
 export const metadata = {
-  title: 'Directorio de Negocios Latinos en Jacksonville, Florida',
-  description: 'Directorio completo de negocios latinos en Jacksonville, FL.',
+  title: 'Directorio de Negocios Latinos en Jacksonville, Florida | Jax Unico',
+  description: 'El directorio de negocios latinos más completo de Jacksonville, Florida. Encuentra restaurantes, salud, bienes raíces, tecnología, belleza, finanzas y más negocios hispanos en Jacksonville, FL. Registra tu negocio gratis y llega a +120,000 latinos en Jacksonville.',
+  keywords: [
+    'directorio de negocios latinos Jacksonville',
+    'negocios latinos Jacksonville FL',
+    'negocios hispanos Jacksonville Florida',
+    'directorio hispano Jacksonville',
+    'Latin-owned businesses Jacksonville',
+    'Hispanic businesses Jacksonville FL',
+    'directorio empresas latinas Jacksonville',
+    'negocios latinos Jacksonville Florida',
+    'restaurantes latinos Jacksonville',
+    'salud para latinos Jacksonville',
+    'médico que habla español Jacksonville',
+    'bienes raíces latinos Jacksonville',
+    'abogado latino Jacksonville FL',
+    'contador latino Jacksonville',
+    'construcción latinos Jacksonville',
+    'tecnología negocios latinos Jacksonville',
+    'belleza latina Jacksonville',
+    'finanzas para latinos Jacksonville',
+    'seguros latinos Jacksonville FL',
+    'empresas latinas Jacksonville FL',
+    'compra latino Jacksonville',
+    'apoyo negocio hispano Jacksonville',
+    'small business latino Jacksonville',
+    'Latino business directory Jacksonville Florida',
+    'Hispanic business directory Jacksonville FL',
+  ],
+  openGraph: {
+    title: 'Directorio Negocios Latinos Jacksonville, FL — Jax Unico',
+    description: 'Encuentra y apoya negocios latinos e hispanos en Jacksonville, Florida. Restaurantes, salud, legal, construcción, belleza y más. Registra tu negocio gratis.',
+    url: 'https://jaxunico.com/directorio',
+    images: [{ url: '/logo.png', width: 1200, height: 630, alt: 'Directorio Negocios Latinos Jacksonville — Jax Unico' }],
+  },
   alternates: { canonical: 'https://jaxunico.com/directorio' },
 }
 
@@ -25,7 +58,6 @@ export default async function DirectorioPage() {
   let listings: any[] = []
   try {
     const cmsListings = await getAllListings()
-    // Merge: show CMS listings first, then fill with static if CMS is empty
     listings = cmsListings && cmsListings.length > 0
       ? cmsListings
       : staticListings

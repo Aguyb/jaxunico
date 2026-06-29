@@ -8,9 +8,36 @@ import { Metadata } from 'next'
 export const revalidate = 0 // Always fetch fresh from Sanity
 
 export const metadata: Metadata = {
-  title: 'Blog — Jax Unico',
-  description: 'Emprendimiento, marketing y comunidad para los latinos de Jacksonville.',
+  title: 'Blog — Emprendimiento, Marketing Digital y Comunidad Latina en Jacksonville, FL',
+  description: 'Blog de Jax Unico: artículos sobre emprendimiento, marketing digital, producción de video, fotografía, redes sociales, desarrollo de negocios, creación de contenido y comunidad latina en Jacksonville, Florida. Podcast en español El Show.',
+  keywords: [
+    'blog latino Jacksonville',
+    'blog emprendimiento Jacksonville FL',
+    'noticias comunidad latina Jacksonville',
+    'artículos marketing digital Jacksonville',
+    'blog negocios hispanos Jacksonville',
+    'emprendimiento latino Jacksonville',
+    'marketing digital para latinos Jacksonville',
+    'blog producción de video Jacksonville',
+    'podcast en español Jacksonville blog',
+    'noticias hispanas Jacksonville FL',
+    'desarrollo de negocios latinos Jacksonville',
+    'creación de contenido tips Jacksonville',
+    'redes sociales tips Jacksonville FL',
+    'consejos negocios latinos Jacksonville',
+    'fotografía negocios Jacksonville blog',
+    'blog comunidad latina Florida',
+    'contenido emprendedores Jacksonville',
+    'Jax Unico blog',
+  ],
+  openGraph: {
+    title: 'Blog Jax Unico — Emprendimiento y Comunidad Latina Jacksonville',
+    description: 'Artículos, guías y recursos sobre emprendimiento, marketing digital, producción de video y comunidad latina en Jacksonville, Florida.',
+    url: 'https://jaxunico.com/blog',
+    images: [{ url: '/logo.png', width: 1200, height: 630, alt: 'Blog Jax Unico — Comunidad Latina Jacksonville' }],
+  },
   alternates: {
+    canonical: 'https://jaxunico.com/blog',
     types: {
       'application/rss+xml': 'https://jaxunico.com/blog/feed.xml',
     },
@@ -27,14 +54,13 @@ const staticPosts = [
   { _id: '5', slug: { current: '5-razones-anunciar-medios-latinos' }, cat: 'Negocios Latinos', category: 'Negocios Latinos', title: '5 Razones para Anunciar en Medios Latinos', excerpt: 'El ROI de conectar con la comunidad latina supera al de los medios tradicionales.', readTime: '5 min', coverImage: 'https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&q=80' },
 ]
 
-
 export default async function BlogPage() {
   // Fetch from Sanity — falls back to static data if CMS is empty
   const [cmsArticles, allEpisodes] = await Promise.all([
-  getAllArticles().catch(() => []),
-  getAllEpisodes().catch(() => []),
-])
-const latestEpisodes = allEpisodes.slice(0, 3)
+    getAllArticles().catch(() => []),
+    getAllEpisodes().catch(() => []),
+  ])
+  const latestEpisodes = allEpisodes.slice(0, 3)
   const posts = cmsArticles.length > 0 ? cmsArticles : staticPosts
   const featured = posts[0]
   const allPosts = posts // all posts passed to BlogFilters for filtering
@@ -56,7 +82,7 @@ const latestEpisodes = allEpisodes.slice(0, 3)
             <div className="lg:col-span-2">
               {/* Featured */}
               {featured && (
-                <Link href={`/blog/${featured.slug}`} className="card overflow-hidden mb-10 hover:-translate-y-1 transition-all duration-300 block">
+                <Link href={`/blog/${featured.slug?.current || featured.slug}`} className="card overflow-hidden mb-10 hover:-translate-y-1 transition-all duration-300 block">
                   <div className="h-72 overflow-hidden">
                     <img src={featured.coverImage} alt={featured.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                   </div>
@@ -142,8 +168,8 @@ const latestEpisodes = allEpisodes.slice(0, 3)
             </Link>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {suggestedEpisodes.map(ep => (
-              <Link key={ep.num} href={`/el-show/${ep.slug}`} className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden group hover:bg-white/10 hover:border-[#C6002B]/40 transition-all cursor-pointer block">
+            {latestEpisodes.map((ep: any) => (
+              <Link key={ep._id} href={`/el-show/${ep.slug?.current || ep.slug}`} className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden group hover:bg-white/10 hover:border-[#C6002B]/40 transition-all cursor-pointer block">
                 <div className="h-48 relative overflow-hidden">
                   <img src={ep.coverImage || 'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=400&q=80'} alt={ep.title} className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 flex items-center justify-center">

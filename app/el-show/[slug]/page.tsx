@@ -3,6 +3,7 @@ import { client } from '@/lib/sanity.client'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, Clock, Mic } from 'lucide-react'
+import type { Metadata } from 'next'
 
 // Accepts bare ID, youtu.be/ID, or full youtube.com/watch?v=ID
 function extractYoutubeId(input: string): string {
@@ -26,6 +27,36 @@ async function getEpisodeBySlug(slug: string) {
 export async function generateStaticParams() {
   const episodes = await getAllEpisodes().catch(() => [])
   return episodes.map((e: any) => ({ slug: e.slug }))
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const episode = await getEpisodeBySlug(slug).catch(() => null)
+  if (!episode) return {}
+
+  const title = `${episode.title} | El Show — Jax Unico`
+  const description = episode.description
+    || (episode.guest ? `Episodio ${episode.episodeNumber} con ${episode.guest}. El Show de Jax Unico — Podcast Latino Jacksonville.` : `Episodio ${episode.episodeNumber} de El Show de Jax Unico, el podcast latino de Jacksonville.`)
+  const image = episode.coverImage
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title: episode.title,
+      description,
+      url: `https://jaxunico.com/el-show/${slug}`,
+      type: 'article',
+      images: image ? [{ url: image, width: 1200, height: 630, alt: episode.title }] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: episode.title,
+      description,
+      ...(image && { images: [image] }),
+    },
+    alternates: { canonical: `https://jaxunico.com/el-show/${slug}` },
+  }
 }
 
 export default async function EpisodePage({ params }: { params: Promise<{ slug: string }> }) {

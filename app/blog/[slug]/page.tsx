@@ -5,10 +5,41 @@ import Link from 'next/link'
 import { ArrowLeft, Clock, Calendar } from 'lucide-react'
 import NewsletterForm from '@/components/NewsletterForm'
 import ShareButtons from '@/components/ShareButtons'
+import type { Metadata } from 'next'
 
 export async function generateStaticParams() {
   const articles = await getAllArticles().catch(() => [])
   return articles.map((a: any) => ({ slug: a.slug }))
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const article = await getArticleBySlug(slug).catch(() => null)
+  if (!article) return {}
+
+  const title = `${article.title} | Jax Unico`
+  const description = article.excerpt || article.description || 'Artículo del blog de Jax Unico — Comunidad Latina Jacksonville, Florida.'
+  const image = article.coverImage
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title: article.title,
+      description,
+      url: `https://jaxunico.com/blog/${slug}`,
+      type: 'article',
+      ...(article.publishedAt && { publishedTime: article.publishedAt }),
+      images: image ? [{ url: image, width: 1200, height: 630, alt: article.title }] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description,
+      ...(image && { images: [image] }),
+    },
+    alternates: { canonical: `https://jaxunico.com/blog/${slug}` },
+  }
 }
 
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
